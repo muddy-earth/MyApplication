@@ -64,5 +64,5 @@ endif()
 
 
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;dl;c;dl")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/linux-x86_64/lib/gcc/mipsel-linux-android/4.9.x;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/linux-x86_64/mipsel-linux-android/lib;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/linux-x86_64/lib/gcc/mipsel-linux-android/4.9.x;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/linux-x86_64/mipsel-linux-android/lib;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-16/arch-mips/usr/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

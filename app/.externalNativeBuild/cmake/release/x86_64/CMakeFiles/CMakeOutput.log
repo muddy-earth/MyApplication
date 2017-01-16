@@ -1,19 +1,19 @@
-The target system is: Android - 23 - x86_64
+The target system is: Android - 21 - x86_64
 The host system is: Linux - 4.4.0-59-generic - x86_64
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_7b5ce"
-[1/2] Building C object CMakeFiles/cmTC_7b5ce.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_7b5ce
+Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_6a124"
+[1/2] Building C object CMakeFiles/cmTC_6a124.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_6a124
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_dd53f"
-[1/2] Building C object CMakeFiles/cmTC_dd53f.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_dd53f
+Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_99474"
+[1/2] Building C object CMakeFiles/cmTC_99474.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_99474
 Android clang version 3.8.256229  (based on LLVM 3.8.256229)
 Target: x86_64-none-linux-android
 Thread model: posix
@@ -24,16 +24,16 @@ Candidate multilib: .;@m64
 Candidate multilib: 32;@m32
 Candidate multilib: x32;@mx32
 Selected multilib: .;@m64
- "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_dd53f /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_dd53f.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtend_android.o
+ "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_99474 /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_99474.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(x86_64-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_dd53f"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_dd53f.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_dd53f]
+  ignore line: [Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_99474"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_99474.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_99474]
   ignore line: [Android clang version 3.8.256229  (based on LLVM 3.8.256229)]
   ignore line: [Target: x86_64-none-linux-android]
   ignore line: [Thread model: posix]
@@ -48,9 +48,9 @@ Parsed C implicit link information from above output:
   ignore line: [@mx32]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_dd53f /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_dd53f.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtend_android.o]
+  link line: [ "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_99474 /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_99474.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtend_android.o]
     arg [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld] ==> ignore
-    arg [--sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64] ==> ignore
+    arg [--sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64] ==> ignore
     arg [-pie] ==> ignore
     arg [-zrelro] ==> ignore
     arg [--build-id] ==> ignore
@@ -60,13 +60,13 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_dd53f] ==> ignore
-    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o] ==> ignore
+    arg [cmTC_99474] ==> ignore
+    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
     arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64]
-    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64]
+    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64]
     arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib]
-    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib]
+    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib]
     arg [--build-id] ==> ignore
     arg [--warn-shared-textrel] ==> ignore
     arg [--fatal-warnings] ==> ignore
@@ -85,39 +85,39 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_dd53f.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_99474.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtend_android.o] ==> ignore
+    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtend_android.o] ==> ignore
   remove lib [gcc]
   remove lib [gcc]
   collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
   collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib64]
-  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib64]
+  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib64]
   collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib]
-  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib]
+  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib]
   implicit libs: [dl;c;dl]
-  implicit dirs: [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib]
+  implicit dirs: [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib]
   implicit fwks: []
 
 
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a667c"
-[1/2] Building CXX object CMakeFiles/cmTC_a667c.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_a667c
+Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_7b05e"
+[1/2] Building CXX object CMakeFiles/cmTC_7b05e.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_7b05e
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a4f70"
-[1/2] Building CXX object CMakeFiles/cmTC_a4f70.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_a4f70
+Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_0e178"
+[1/2] Building CXX object CMakeFiles/cmTC_0e178.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_0e178
 Android clang version 3.8.256229  (based on LLVM 3.8.256229)
 Target: x86_64-none-linux-android
 Thread model: posix
@@ -128,16 +128,16 @@ Candidate multilib: .;@m64
 Candidate multilib: 32;@m32
 Candidate multilib: x32;@mx32
 Selected multilib: .;@m64
- "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_a4f70 /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a4f70.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtend_android.o
+ "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_0e178 /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_0e178.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(x86_64-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a4f70"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_a4f70.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_a4f70]
+  ignore line: [Run Build Command:"/home/overtatech-4/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_0e178"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_0e178.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_0e178]
   ignore line: [Android clang version 3.8.256229  (based on LLVM 3.8.256229)]
   ignore line: [Target: x86_64-none-linux-android]
   ignore line: [Thread model: posix]
@@ -152,9 +152,9 @@ Parsed CXX implicit link information from above output:
   ignore line: [@mx32]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_a4f70 /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a4f70.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtend_android.o]
+  link line: [ "/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld" --sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64 -pie -z relro --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_0e178 /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64 -L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib -L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_0e178.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtend_android.o]
     arg [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/bin/ld] ==> ignore
-    arg [--sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64] ==> ignore
+    arg [--sysroot=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64] ==> ignore
     arg [-pie] ==> ignore
     arg [-zrelro] ==> ignore
     arg [--build-id] ==> ignore
@@ -164,13 +164,13 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a4f70] ==> ignore
-    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o] ==> ignore
+    arg [cmTC_0e178] ==> ignore
+    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
     arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64]
-    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64]
+    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64]
     arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib]
-    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib]
+    arg [-L/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib] ==> dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib]
     arg [--build-id] ==> ignore
     arg [--warn-shared-textrel] ==> ignore
     arg [--fatal-warnings] ==> ignore
@@ -189,7 +189,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_a4f70.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_0e178.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -199,18 +199,18 @@ Parsed CXX implicit link information from above output:
     arg [-lgcc] ==> lib [gcc]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64/crtend_android.o] ==> ignore
+    arg [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64/crtend_android.o] ==> ignore
   remove lib [gcc]
   remove lib [gcc]
   remove lib [gcc]
   remove lib [gcc]
   collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
   collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib/../lib64] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib64]
-  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib/../lib64] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib64]
+  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib/../lib64] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib64]
   collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x/../../../../x86_64-linux-android/lib] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib]
-  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib]
+  collapse library dir [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib] ==> [/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib]
   implicit libs: [stdc++;m;dl;c;dl]
-  implicit dirs: [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-x86_64/usr/lib]
+  implicit dirs: [/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib64;/home/overtatech-4/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/lib;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-x86_64/usr/lib]
   implicit fwks: []
 
 

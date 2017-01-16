@@ -18,7 +18,7 @@
 ANDROID_ABI:UNINITIALIZED=arm64-v8a
 
 //No help, variable specified on the command line.
-ANDROID_NATIVE_API_LEVEL:UNINITIALIZED=23
+ANDROID_NATIVE_API_LEVEL:UNINITIALIZED=21
 
 //No help, variable specified on the command line.
 ANDROID_NDK:UNINITIALIZED=/home/overtatech-4/Android/Sdk/ndk-bundle
@@ -184,10 +184,10 @@ Project_BINARY_DIR:STATIC=/home/overtatech-4/AndroidStudioProjects/github/MyAppl
 Project_SOURCE_DIR:STATIC=/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app
 
 //Path to a library.
-log-lib:FILEPATH=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/liblog.so
+log-lib:FILEPATH=/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/liblog.so
 
 //Dependencies for the target
-native-lib_LIB_DEPENDS:STATIC=general;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/liblog.so;
+native-lib_LIB_DEPENDS:STATIC=general;/home/overtatech-4/Android/Sdk/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/liblog.so;
 
 
 ########################
