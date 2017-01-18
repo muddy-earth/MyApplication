@@ -4,28 +4,28 @@
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
-        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_search_view.xml"
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_action_menu_layout.xml"
     },
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/select_dialog_item_material.xml"
     },
     {
-        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_action_menu_layout.xml"
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_search_view.xml"
     },
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
@@ -152,12 +152,12 @@
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_screen_simple.xml"
     },
     {
-        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/support_simple_spinner_dropdown_item.xml"
-    },
-    {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.debajyotidas.myapplication.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,7 +43,7 @@ public class AllUsersList extends AppCompatActivity {
                 users.clear();
                 while (iterator.hasNext())
                 {
-                    users.add((User) iterator.next().getValue());
+                    users.add((User) iterator.next().getValue(User.class));
                 }
                 recyclerView.getAdapter().notifyDataSetChanged();
             }
@@ -113,6 +114,8 @@ public class AllUsersList extends AppCompatActivity {
             User data=datas.get(position);
 
             holder.name.setText(data.getName());
+
+            Glide.with(AllUsersList.this).load(data.getImg_url()).placeholder(R.drawable.ic_person).into(holder.profile);
 
             if (data.isOnline())
                 holder.online_offline.setImageResource(R.drawable.ic_online);

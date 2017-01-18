@@ -47,11 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid()+" n"+user.getDisplayName());
 
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("users/"+user.getUid());
-                    myRef.setValue(new User(user.getDisplayName(),user.getPhotoUrl().toString(),false));
+                    DatabaseReference myRef = database.getReference("users");
+                    myRef.child(user.getUid()).setValue(new User(user.getDisplayName()==null?"anonymous":user.getDisplayName(),
+                            user.getPhotoUrl()==null?"":user.getPhotoUrl().toString(),false));
 
                 } else {
                     // User is signed out

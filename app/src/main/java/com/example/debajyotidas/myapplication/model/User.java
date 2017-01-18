@@ -5,8 +5,12 @@ package com.example.debajyotidas.myapplication.model;
  */
 
 public class User {
-    String name, img_url;
+    String name;
+    String img_url;
     boolean isOnline;
+
+    public User() {
+    }
 
     public User(String name, String img_url, boolean isOnline) {
         this.name = name;
