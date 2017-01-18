@@ -89,7 +89,8 @@ public class AllUsersList extends AppCompatActivity {
                         Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
 
                         users.add(new User(String.valueOf(map.get("name")),
-                                String.valueOf(map.get("img_url")), Boolean.parseBoolean(String.valueOf(map.get("online")))));
+                                String.valueOf(map.get("img_url")),
+                                Boolean.parseBoolean(String.valueOf(map.get("online")))));
                     }
                 }
                 recyclerView.getAdapter().notifyDataSetChanged();
