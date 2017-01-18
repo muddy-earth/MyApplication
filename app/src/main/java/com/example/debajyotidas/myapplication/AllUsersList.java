@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,22 @@ import com.bumptech.glide.Glide;
 import com.example.debajyotidas.myapplication.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Objects;
 
 public class AllUsersList extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<User> users=new ArrayList<>();
+    private final String TAG ="AllUsersList";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +43,54 @@ public class AllUsersList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(users));
 
+        // since I can connect from multiple devices, we store each connection instance separately
+// any time that connectionsRef's value is null (i.e. has no children) I am offline
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myConnectionsRef = database.getReference("users/"+Constants.UID+"/online");
+
+// stores the timestamp of my last disconnect (the last time I was seen online)
+        final DatabaseReference lastOnlineRef = database.getReference("/users/"+Constants.UID+"/lastOnline");
+
+        final DatabaseReference connectedRef = database.getReference(".info/connected");
+        connectedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                boolean connected = snapshot.getValue(Boolean.class);
+                if (connected) {
+                    // add this device to my connections list
+                    // this value could contain info about the device or a timestamp too
+                    //DatabaseReference con = myConnectionsRef.push();
+                    myConnectionsRef.setValue(Boolean.TRUE);
+
+                    // when this device disconnects, remove it
+                    myConnectionsRef.onDisconnect().setValue(Boolean.FALSE);
+
+                    // when I disconnect, update the last time I was seen online
+                    lastOnlineRef.onDisconnect().setValue(ServerValue.TIMESTAMP);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                System.err.println("Listener was cancelled at .info/connected");
+            }
+        });
+
+
         FirebaseDatabase.getInstance().getReference("users").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(final DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> iterator=dataSnapshot.getChildren().iterator();
                 users.clear();
                 while (iterator.hasNext())
                 {
-                    users.add((User) iterator.next().getValue(User.class));
+                    DataSnapshot datasnap=iterator.next();
+                    if (!datasnap.getKey().equals(Constants.UID)) {
+                        Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
+
+                        users.add(new User(String.valueOf(map.get("name")),
+                                String.valueOf(map.get("img_url")), Boolean.parseBoolean(String.valueOf(map.get("online")))));
+                    }
                 }
                 recyclerView.getAdapter().notifyDataSetChanged();
             }
