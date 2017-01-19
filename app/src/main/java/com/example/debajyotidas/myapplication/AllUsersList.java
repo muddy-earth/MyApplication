@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
-public class AllUsersList extends AppCompatActivity {
+public class AllUsersList extends BaseActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<User> users=new ArrayList<>();
@@ -42,40 +42,6 @@ public class AllUsersList extends AppCompatActivity {
         recyclerView=(RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(users));
-
-        // since I can connect from multiple devices, we store each connection instance separately
-// any time that connectionsRef's value is null (i.e. has no children) I am offline
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myConnectionsRef = database.getReference("users/"+Constants.UID+"/online");
-
-// stores the timestamp of my last disconnect (the last time I was seen online)
-        final DatabaseReference lastOnlineRef = database.getReference("/users/"+Constants.UID+"/lastOnline");
-
-        final DatabaseReference connectedRef = database.getReference(".info/connected");
-        connectedRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                boolean connected = snapshot.getValue(Boolean.class);
-                if (connected) {
-                    // add this device to my connections list
-                    // this value could contain info about the device or a timestamp too
-                    //DatabaseReference con = myConnectionsRef.push();
-                    myConnectionsRef.setValue(Boolean.TRUE);
-
-                    // when this device disconnects, remove it
-                    myConnectionsRef.onDisconnect().setValue(Boolean.FALSE);
-
-                    // when I disconnect, update the last time I was seen online
-                    lastOnlineRef.onDisconnect().setValue(ServerValue.TIMESTAMP);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                System.err.println("Listener was cancelled at .info/connected");
-            }
-        });
-
 
         FirebaseDatabase.getInstance().getReference("users").addValueEventListener(new ValueEventListener() {
             @Override
