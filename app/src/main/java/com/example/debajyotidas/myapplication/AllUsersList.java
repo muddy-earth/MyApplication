@@ -22,7 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -54,9 +56,19 @@ public class AllUsersList extends BaseActivity {
                     if (!datasnap.getKey().equals(Constants.UID)) {
                         Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
 
-                        users.add(new User(String.valueOf(map.get("name")),
+                        boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
+                        User user=new User(String.valueOf(map.get("name")),
                                 String.valueOf(map.get("img_url")),
-                                Boolean.parseBoolean(String.valueOf(map.get("online")))));
+                                isOnline);
+
+                        if (!isOnline){
+
+                            SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                            String timestamp=sfd.format(new Date(Long.parseLong(String.valueOf(map.get("lastOnline")))));
+
+                          user.setLast_seen(timestamp);
+                        }
+                        users.add(user);
                     }
                 }
                 recyclerView.getAdapter().notifyDataSetChanged();
@@ -131,10 +143,22 @@ public class AllUsersList extends BaseActivity {
 
             Glide.with(AllUsersList.this).load(data.getImg_url()).placeholder(R.drawable.ic_person).into(holder.profile);
 
-            if (data.isOnline())
+            if (data.isOnline()) {
                 holder.online_offline.setImageResource(R.drawable.ic_online);
-                else holder.online_offline.setImageResource(R.drawable.ic_offline);
+                holder.last_seen.setVisibility(View.GONE);
+            }
+                else{
+                holder.last_seen.setVisibility(View.VISIBLE);
+                holder.online_offline.setImageResource(R.drawable.ic_offline);
+            }
+            String lastSeen="last seen "+data.getLast_seen();
+            holder.last_seen.setText(lastSeen);
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
+                }
+            });
         }
 
         /**
@@ -149,7 +173,7 @@ public class AllUsersList extends BaseActivity {
 
         class ViewHolder extends RecyclerView.ViewHolder{
             ImageView profile, online_offline;
-            TextView name;
+            TextView name, last_seen;
             CardView cardView;
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -157,6 +181,7 @@ public class AllUsersList extends BaseActivity {
                 profile=(ImageView) itemView.findViewById(R.id.img_profile);
                 online_offline=(ImageView) itemView.findViewById(R.id.img_online_offline);
                 name=(TextView) itemView.findViewById(R.id.name_profile);
+                last_seen=(TextView) itemView.findViewById(R.id.subtext_profile);
 
             }
         }

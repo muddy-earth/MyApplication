@@ -5,7 +5,7 @@ package com.example.debajyotidas.myapplication.model;
  */
 
 public class User {
-    String name;
+    String name, last_seen;
     String img_url;
     boolean isOnline;
 
@@ -16,6 +16,14 @@ public class User {
         this.name = name;
         this.img_url = img_url;
         this.isOnline = isOnline;
+    }
+
+    public String getLast_seen() {
+        return last_seen;
+    }
+
+    public void setLast_seen(String last_seen) {
+        this.last_seen = last_seen;
     }
 
     public boolean isOnline() {

@@ -24,18 +24,36 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_person"/>
-        <TextView
-            android:id="@+id/name_profile"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="@dimen/text_size_primary"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_toEndOf="@+id/img_profile"
             android:layout_toRightOf="@+id/img_profile"
             android:layout_toLeftOf="@+id/img_online_offline"
-            android:layout_toStartOf="@+id/img_online_offline" />
+            android:layout_toStartOf="@+id/img_online_offline"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/name_profile"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="@dimen/text_size_primary"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                />
+            <TextView
+                android:id="@+id/subtext_profile"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="@dimen/text_size_secondary"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="last seen"
+                />
+
+        </LinearLayout>
+
     <ImageView
         android:layout_centerVertical="true"
             android:id="@+id/img_online_offline"
