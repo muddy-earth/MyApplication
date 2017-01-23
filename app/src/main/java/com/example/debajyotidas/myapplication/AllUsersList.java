@@ -15,17 +15,19 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.debajyotidas.myapplication.model.User;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.okhttp.MediaType;
+/*import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.MultipartBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+import com.squareup.okhttp.Response;*/
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -41,8 +43,8 @@ public class AllUsersList extends BaseActivity {
     private RecyclerView recyclerView;
     private ArrayList<User> users=new ArrayList<>();
     private final String TAG ="AllUsersList";
-    public static final MediaType JSON
-            = MediaType.parse("application/json; charset=utf-8");
+    /*public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");*/
 
 
     @Override
@@ -168,7 +170,14 @@ public class AllUsersList extends BaseActivity {
 
                     /*try {
                         OkHttpClient client = new OkHttpClient();
+
+                        RequestBody requestBody = new MultipartBuilder()
+                                .type(MultipartBody.FORM)
+                                .addFormDataPart("somParam", "someValue")
+                                .build();
+
                         RequestBody body = RequestBody.create(JSON, json);
+                        body.addFormDataPart("somParam", "someValue");
                         Request request = new Request.Builder()
                                 .url(url)
                                 .post(body)

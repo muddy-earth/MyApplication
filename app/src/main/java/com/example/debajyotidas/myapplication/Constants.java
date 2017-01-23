@@ -10,4 +10,6 @@ public class Constants {
     public static boolean IS_USER_CREATED=false;
     public static String Reg_Token="";
 
+    public static final String LEGACY_SERVER_KEY="AIzaSyBtfXBcIqiT2-aNCPGV8pW-R8wtIE3NzbY";
+
 }
