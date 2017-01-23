@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("users");
-                        myRef.child(user.getUid()).setValue(new User(Constants.NAME, Constants.PHOTO_URI, false));
+                        myRef.child(user.getUid()).setValue(new User(Constants.NAME, Constants.PHOTO_URI, false,Constants.Reg_Token));
 
                         Constants.IS_USER_CREATED=true;
                     }

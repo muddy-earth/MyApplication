@@ -8,5 +8,6 @@ public class Constants {
 
     public static String UID, PHOTO_URI, NAME;
     public static boolean IS_USER_CREATED=false;
+    public static String Reg_Token="";
 
 }

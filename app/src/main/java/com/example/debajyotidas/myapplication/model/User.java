@@ -8,15 +8,20 @@ public class User {
     String name, last_seen;
     String img_url;
     boolean isOnline;
+    String reg_token;
 
     public User() {
     }
 
-    public User(String name, String img_url, boolean isOnline) {
+    public User(String name, String img_url, boolean isOnline, String reg_token) {
         this.name = name;
+        this.last_seen = last_seen;
         this.img_url = img_url;
         this.isOnline = isOnline;
+        this.reg_token = reg_token;
     }
+
+
 
     public String getLast_seen() {
         return last_seen;
@@ -48,5 +53,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getReg_token() {
+        return reg_token;
+    }
+
+    public void setReg_token(String reg_token) {
+        this.reg_token = reg_token;
     }
 }

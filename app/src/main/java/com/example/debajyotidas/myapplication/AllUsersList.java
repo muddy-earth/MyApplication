@@ -21,7 +21,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +41,9 @@ public class AllUsersList extends BaseActivity {
     private RecyclerView recyclerView;
     private ArrayList<User> users=new ArrayList<>();
     private final String TAG ="AllUsersList";
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +68,7 @@ public class AllUsersList extends BaseActivity {
                         boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
                         User user=new User(String.valueOf(map.get("name")),
                                 String.valueOf(map.get("img_url")),
-                                isOnline);
+                                isOnline,String.valueOf(map.get("reg_token")));
 
                         if (!isOnline){
 
@@ -157,6 +166,19 @@ public class AllUsersList extends BaseActivity {
                 @Override
                 public void onClick(View v) {
 
+                    /*try {
+                        OkHttpClient client = new OkHttpClient();
+                        RequestBody body = RequestBody.create(JSON, json);
+                        Request request = new Request.Builder()
+                                .url(url)
+                                .post(body)
+                                .build();
+                        Response response = client.newCall(request).execute();
+                        String finalResponse = response.body().string();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }*/
+
                 }
             });
         }
@@ -186,5 +208,9 @@ public class AllUsersList extends BaseActivity {
             }
         }
     }
+
+        /*String post(String url, String json) throws IOException {
+
+        }*/
 
 }
