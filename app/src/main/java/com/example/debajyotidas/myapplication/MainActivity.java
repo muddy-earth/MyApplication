@@ -49,17 +49,20 @@ public class MainActivity extends BaseActivity {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid()+" n"+user.getDisplayName());
 
-                    if (!Constants.IS_USER_CREATED) {
+                    //if (!Constants.IS_USER_CREATED) {
                         Constants.NAME = user.getDisplayName() == null ? "anonymous" : user.getDisplayName();
                         Constants.PHOTO_URI = user.getPhotoUrl() == null ? "" : user.getPhotoUrl().toString();
-                        Constants.UID = user.getUid();
+                        //Constants.UID = user.getUid();
+
+                        preferences.edit().putString(Constants.SHARED_PREFS.UID,user.getUid()).apply();
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("users");
-                        myRef.child(user.getUid()).setValue(new User(Constants.NAME, Constants.PHOTO_URI, false,Constants.Reg_Token));
+                        String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token_yet");
+                        myRef.child(user.getUid()).setValue(new User(Constants.NAME, Constants.PHOTO_URI, false,reg_token));
 
-                        Constants.IS_USER_CREATED=true;
-                    }
+                        //Constants.IS_USER_CREATED=true;
+                   // }
 
                 } else {
                     // User is signed out

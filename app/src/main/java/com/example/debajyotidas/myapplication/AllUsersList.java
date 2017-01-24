@@ -1,5 +1,6 @@
 package com.example.debajyotidas.myapplication;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -29,6 +30,8 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;*/
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,13 +41,20 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 public class AllUsersList extends BaseActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<User> users=new ArrayList<>();
     private final String TAG ="AllUsersList";
-    /*public static final MediaType JSON
-            = MediaType.parse("application/json; charset=utf-8");*/
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
 
 
     @Override
@@ -64,7 +74,7 @@ public class AllUsersList extends BaseActivity {
                 while (iterator.hasNext())
                 {
                     DataSnapshot datasnap=iterator.next();
-                    if (!datasnap.getKey().equals(Constants.UID)) {
+                    if (!datasnap.getKey().equals(UID)) {
                         Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
 
                         boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
@@ -75,9 +85,13 @@ public class AllUsersList extends BaseActivity {
                         if (!isOnline){
 
                             SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                            String timestamp=sfd.format(new Date(Long.parseLong(String.valueOf(map.get("lastOnline")))));
+                            try {
+                                String timestamp = sfd.format(new Date(Long.parseLong(String.valueOf(map.get("lastOnline")))));
 
-                          user.setLast_seen(timestamp);
+                                user.setLast_seen(timestamp);
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
                         }
                         users.add(user);
                     }
@@ -148,7 +162,7 @@ public class AllUsersList extends BaseActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
 
-            User data=datas.get(position);
+            final User data=datas.get(position);
 
             holder.name.setText(data.getName());
 
@@ -168,25 +182,33 @@ public class AllUsersList extends BaseActivity {
                 @Override
                 public void onClick(View v) {
 
-                    /*try {
-                        OkHttpClient client = new OkHttpClient();
 
-                        RequestBody requestBody = new MultipartBuilder()
-                                .type(MultipartBody.FORM)
-                                .addFormDataPart("somParam", "someValue")
-                                .build();
-
-                        RequestBody body = RequestBody.create(JSON, json);
-                        body.addFormDataPart("somParam", "someValue");
-                        Request request = new Request.Builder()
-                                .url(url)
-                                .post(body)
-                                .build();
-                        Response response = client.newCall(request).execute();
-                        String finalResponse = response.body().string();
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }*/
+                    new AsyncTask<Void,Void,Void>(){
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            try {
+                                OkHttpClient client = new OkHttpClient();
+                                JSONObject json=new JSONObject();
+                                JSONObject dataJson=new JSONObject();
+                                dataJson.put("message","Hi this is sent from device to device");
+                                dataJson.put("sender","Sender is "+data.getName()+" and ID is "+UID);
+                                json.put("data",dataJson);
+                                json.put("to",data.getReg_token());
+                                RequestBody body = RequestBody.create(JSON, json.toString());
+                                Request request = new Request.Builder()
+                                        .header("Authorization","key="+Constants.LEGACY_SERVER_KEY)
+                                        .url(Constants.FIREBASE_PUSH_URL)
+                                        .post(body)
+                                        .build();
+                                Response response = client.newCall(request).execute();
+                                String finalResponse = response.body().string();
+                                Log.d(TAG, "token : "+data.getReg_token()+"/////"+finalResponse);
+                            }catch (Exception e){
+                                Log.d(TAG,e+"");
+                            }
+                            return null;
+                        }
+                    }.execute();
 
                 }
             });

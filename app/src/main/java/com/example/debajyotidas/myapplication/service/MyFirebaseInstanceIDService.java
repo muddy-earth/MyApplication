@@ -16,6 +16,7 @@
 
 package com.example.debajyotidas.myapplication.service;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.debajyotidas.myapplication.Constants;
@@ -57,11 +58,13 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
      */
     private void sendRegistrationToServer(String token) {
         // TODO: Implement this method to send token to your app server.
+        SharedPreferences preferences=
+        getBaseContext().getSharedPreferences(Constants.SHARED_PREFS.NAME, MODE_PRIVATE);
 
-        if (!Constants.IS_USER_CREATED)
-            Constants.Reg_Token=token;
-        else{
-            FirebaseDatabase.getInstance().getReference("users/"+Constants.UID+"/reg_token").setValue(token);
+                preferences.edit().putString(Constants.SHARED_PREFS.REG_TOKEN, token).apply();
+        String uid=preferences.getString(Constants.SHARED_PREFS.UID,"no_uid");
+        if (!uid.equals("no_uid")) {
+            FirebaseDatabase.getInstance().getReference("users/"+uid+"/reg_token").setValue(token);
         }
 
 
