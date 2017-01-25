@@ -9,6 +9,7 @@ public class User {
     String img_url;
     boolean isOnline;
     String reg_token;
+    String UID;
 
     public User() {
     }
@@ -61,5 +62,13 @@ public class User {
 
     public void setReg_token(String reg_token) {
         this.reg_token = reg_token;
+    }
+
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 }

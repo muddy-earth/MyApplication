@@ -1,7 +1,7 @@
 package com.example.debajyotidas.myapplication;
 
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,36 +13,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.debajyotidas.myapplication.model.User;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
-/*import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.MultipartBuilder;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;*/
-
 import org.json.JSONObject;
-
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Objects;
-
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -81,6 +64,7 @@ public class AllUsersList extends BaseActivity {
                         User user=new User(String.valueOf(map.get("name")),
                                 String.valueOf(map.get("img_url")),
                                 isOnline,String.valueOf(map.get("reg_token")));
+                        user.setUID(datasnap.getKey());
 
                         if (!isOnline){
 
@@ -176,14 +160,17 @@ public class AllUsersList extends BaseActivity {
                 holder.last_seen.setVisibility(View.VISIBLE);
                 holder.online_offline.setImageResource(R.drawable.ic_offline);
             }
-            String lastSeen="last seen "+data.getLast_seen();
+            String lastSeen;
+            if (data.getLast_seen()==null)
+            lastSeen="last seen not known";
+            else lastSeen="last seen "+data.getLast_seen();
             holder.last_seen.setText(lastSeen);
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
-                    new AsyncTask<Void,Void,Void>(){
+                    /*new AsyncTask<Void,Void,Void>(){
                         @Override
                         protected Void doInBackground(Void... params) {
                             try {
@@ -191,7 +178,7 @@ public class AllUsersList extends BaseActivity {
                                 JSONObject json=new JSONObject();
                                 JSONObject dataJson=new JSONObject();
                                 dataJson.put("message","Hi this is sent from device to device");
-                                dataJson.put("sender","Sender is "+data.getName()+" and ID is "+UID);
+                                dataJson.put("sender",UID);
                                 json.put("data",dataJson);
                                 json.put("to",data.getReg_token());
                                 RequestBody body = RequestBody.create(JSON, json.toString());
@@ -203,6 +190,9 @@ public class AllUsersList extends BaseActivity {
                                 Response response = client.newCall(request).execute();
                                 String finalResponse = response.body().string();
                                 Log.d(TAG, "token : "+data.getReg_token()+"/////"+finalResponse);
+
+                                startActivity(new Intent(AllUsersList.this,GameActivity.class).putExtra("uid",data.getUID()));
+
                             }catch (Exception e){
                                 Log.d(TAG,e+"");
                             }
@@ -210,6 +200,10 @@ public class AllUsersList extends BaseActivity {
                         }
                     }.execute();
 
+*/
+                    startActivity(new Intent(AllUsersList.this,GameActivity.class)
+                            .putExtra("uid",data.getUID())
+                    .putExtra("reg_token",data.getReg_token()));
                 }
             });
         }
