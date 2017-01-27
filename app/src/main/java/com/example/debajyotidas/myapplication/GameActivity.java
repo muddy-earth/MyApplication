@@ -104,6 +104,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                             progressDialog.show();
                             timer.start();
                         }
+
                     }catch (Exception e){
                         e.printStackTrace();
                     }
