@@ -10,4 +10,86 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.debajyotidas.myapplication.GameActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/img_0"
+                android:background="@android:color/holo_orange_dark"/>
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/img_1"
+                android:layout_marginLeft="4dp"
+                android:background="@android:color/holo_orange_dark"/>
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/img_2"
+                android:layout_marginLeft="4dp"
+                android:background="@android:color/holo_orange_dark"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="4dp">
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_3"
+            android:background="@android:color/holo_orange_dark"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_4"
+            android:layout_marginLeft="4dp"
+            android:background="@android:color/holo_orange_dark"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_5"
+            android:layout_marginLeft="4dp"
+            android:background="@android:color/holo_orange_dark"/>
+
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="4dp">
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_6"
+            android:background="@android:color/holo_orange_dark"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_7"
+            android:layout_marginLeft="4dp"
+            android:background="@android:color/holo_orange_dark"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_8"
+            android:layout_marginLeft="4dp"
+            android:background="@android:color/holo_orange_dark"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
