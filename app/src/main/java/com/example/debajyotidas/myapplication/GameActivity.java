@@ -20,7 +20,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -39,12 +41,12 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
     private ImageButton img_0,img_1,img_2,img_3,img_4,img_5,img_6,img_7,img_8;
 
-    private final ArrayList<Integer> WIN_CASES=new ArrayList<>();
+    private final ArrayList<Set<Integer>> WIN_CASES=new ArrayList<>();
 
     Map<String,Object> movesHistory=new HashMap<>();
 
-    ArrayList<Integer> moves=new ArrayList<>();
-    ArrayList<Integer> otherPlayerMoves=new ArrayList<>();
+    Set<Integer> moves=new HashSet<>();
+    Set<Integer> otherPlayerMoves=new HashSet<>();
     int counter=0;
     private boolean canExit=true;
 
@@ -55,11 +57,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
         init();
 
-        WIN_CASES.add(3);
-        WIN_CASES.add(9);
-        WIN_CASES.add(12);
-        WIN_CASES.add(15);
-        WIN_CASES.add(21);
+        initWinCases();
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Waiting for user to be live...");
@@ -163,7 +161,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                         enableEverything(true);
                         canExit=false;
                         if (otherPlayerMoves.size()>=3) {
-                            ArrayList<Integer> winOrNot=checkIfWin(otherPlayerMoves);
+                            Set<Integer> winOrNot=checkIfWin(otherPlayerMoves);
                             if (winOrNot!=null) {
                                 canExit=true;
                                 Toast.makeText(GameActivity.this, "Ohh!! You loose", Toast.LENGTH_SHORT).show();
@@ -181,6 +179,51 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
             }
         });
+    }
+
+    private void initWinCases() {
+        Set<Integer> set1=new HashSet<>();
+        set1.add(0);
+        set1.add(1);
+        set1.add(2);
+        Set<Integer> set2=new HashSet<>();
+        set1.add(3);
+        set1.add(4);
+        set1.add(5);
+        Set<Integer> set3=new HashSet<>();
+        set1.add(6);
+        set1.add(7);
+        set1.add(8);
+        Set<Integer> set4=new HashSet<>();
+        set1.add(0);
+        set1.add(3);
+        set1.add(6);
+        Set<Integer> set5=new HashSet<>();
+        set1.add(1);
+        set1.add(4);
+        set1.add(7);
+        Set<Integer> set6=new HashSet<>();
+        set1.add(2);
+        set1.add(5);
+        set1.add(8);
+        Set<Integer> set7=new HashSet<>();
+        set1.add(0);
+        set1.add(4);
+        set1.add(8);
+        Set<Integer> set8=new HashSet<>();
+        set1.add(2);
+        set1.add(4);
+        set1.add(6);
+
+        WIN_CASES.add(set1);
+        WIN_CASES.add(set2);
+        WIN_CASES.add(set3);
+        WIN_CASES.add(set4);
+        WIN_CASES.add(set5);
+        WIN_CASES.add(set6);
+        WIN_CASES.add(set7);
+        WIN_CASES.add(set8);
+
     }
 
     private void writeToFinalNode() {
@@ -345,7 +388,6 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         }
         if (positionClicked!=-1) {
             setPlayerMove(positionClicked, R.drawable.ic_mood_happy);
-            //FirebaseDatabase.getInstance().getReference("game/" + otherUID + "/current_game/" + counter + "_other").setValue(positionClicked);
             FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game/" + counter + "_you").setValue(positionClicked);
             moves.add(positionClicked);
             movesHistory.put(counter+"_you",positionClicked);
@@ -353,7 +395,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
             canExit=false;
             enableEverything(false);
             if (moves.size()>=3) {
-                ArrayList<Integer> winOrNot=checkIfWin(moves);
+                Set<Integer> winOrNot=checkIfWin(moves);
                 if (winOrNot!=null) {
                     canExit=true;
                     Toast.makeText(this, "Hurray!!! You won", Toast.LENGTH_SHORT).show();
@@ -365,7 +407,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    private void winImageShow(ArrayList<Integer> winOrNot, int resource) {
+    private void winImageShow(Set<Integer> winOrNot, int resource) {
         for (Integer integer :
                 winOrNot) {
             setPlayerMove(integer,resource);
@@ -384,41 +426,29 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         img_8.setEnabled(enable);
     }
 
-    private ArrayList<Integer> checkIfWin(ArrayList<Integer> moves) {
-        ArrayList<ArrayList<Integer>> arrayLists=new ArrayList<>();
-        getCombi(moves,arrayLists,3);
-        for (ArrayList<Integer> arr :
-                arrayLists) {
-            int sum = 0;
-            for (Integer move :
-                    arr) {
-                sum += move;
-            }
-            if (WIN_CASES.contains(sum)) {
-                Log.d("main","final arr "+arr);
-                return arr;
-            }
-        }
-        Log.d("main","final arr "+arrayLists);
-        return null;
+    private Set<Integer> checkIfWin(Set<Integer> moves) {
+        return getCombi(moves,3);
     }
 
-    private void getCombi(ArrayList<Integer> integers, ArrayList<ArrayList<Integer>> arrayLists, int r) {
+    private Set<Integer> getCombi(Set<Integer> integers, int r) {
 
         for (int i = 0; i < integers.size(); i++) {
 
-            ArrayList<Integer> combis=new ArrayList<>();
+            Set<Integer> combis=new HashSet<>();
             combis.addAll(integers);
             if (combis.size()==r) {
-                if (!checkifAlreadyAdded(combis, arrayLists))
-                    arrayLists.add(combis);
+                for (Set<Integer> integrs :
+                        WIN_CASES) {
+                    if (integrs.containsAll(combis)) return combis;
+                }
                 Log.d("combi", "iteration "+i+" arr "+combis);
             }
             else {
                 combis.remove(i);
-                getCombi(combis,arrayLists, r);
+                getCombi(combis, r);
             }
         }
+        return null;
     }
 
     private boolean checkifAlreadyAdded(ArrayList<Integer> combis, ArrayList<ArrayList<Integer>> arrayLists) {
