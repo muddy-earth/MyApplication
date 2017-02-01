@@ -148,7 +148,7 @@ public class AllUsersList extends BaseActivity {
 
             final User data=datas.get(position);
 
-            holder.name.setText(data.getName());
+            holder.name.setText(data.getName()==null?"anonymous":data.getName());
 
             Glide.with(getApplicationContext()).load(data.getImg_url()).placeholder(R.drawable.ic_person).into(holder.profile);
 

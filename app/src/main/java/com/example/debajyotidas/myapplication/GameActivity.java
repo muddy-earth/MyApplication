@@ -143,8 +143,20 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                     boolean value = (boolean) dataSnapshot.getValue();
                     //if (value!=null)
                     if (value) {
-                    }else  sendNotification();
-                }else sendNotification();
+                    }else {
+                        String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
+                        if (reg_token.equals("no_token")){
+                            return ;
+                        }
+                        sendNotification(reg_token);
+                    }
+                }else {
+                    String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
+                    if (reg_token.equals("no_token")){
+                        return ;
+                    }
+                    sendNotification(reg_token);
+                }
                 FirebaseDatabase.getInstance().getReference("game/"+otherUID+"/isLive").addValueEventListener(valueEventListener);
             }
 
@@ -164,13 +176,14 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                         movesHistory.put(counter+"_other",(int) move);
                         setPlayerMove((int) move, R.drawable.ic_mood_bad);
                         enableEverything(true);
+                        findViewById(R.id.wait_text).setVisibility(View.GONE);
                         canExit=false;
                         if (otherPlayerMoves.size()>=3) {
                             Set<Integer> winOrNot=checkIfWin(otherPlayerMoves);
                             if (winOrNot!=null) {
                                 canExit=true;
                                 Toast.makeText(GameActivity.this, "Ohh!! You loose", Toast.LENGTH_SHORT).show();
-                                winImageShow(winOrNot,R.drawable.ic_mood_red);
+                                winImageShow(winOrNot,R.drawable.ic_mood_sad_red);
                                 enableEverything(false);
                                 writeToFinalNode();
                             }
@@ -291,7 +304,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         img_8.setOnClickListener(this);
     }
 
-    private void sendNotification() {
+    private void sendNotification(final String reg_token) {
         new AsyncTask<Void,Void,Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -301,11 +314,6 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                     JSONObject dataJson=new JSONObject();
                     dataJson.put("message","Hi this is sent from device to device");
                     dataJson.put("sender",UID);
-                    String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
-                    if (reg_token.equals("no_token")){
-                        this.cancel(true);
-                        return null;
-                    }
                     dataJson.put("reg_token",reg_token);
                     json.put("data",dataJson);
                     json.put("to",regToken);
@@ -357,9 +365,6 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if (counter%2==0)
-            ((ImageButton)v).setImageResource(R.drawable.ic_mood_happy);
-            else ((ImageButton)v).setImageResource(R.drawable.ic_mood_bad);
         int positionClicked=-1;
 
         switch (v.getId()){
@@ -391,6 +396,15 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                 positionClicked=8;
                 break;
         }
+
+        if (moves.contains(positionClicked)||otherPlayerMoves.contains(positionClicked)){
+            Toast.makeText(this, "Not allowed", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (counter%2==0)
+            ((ImageButton)v).setImageResource(R.drawable.ic_mood_happy);
+        else ((ImageButton)v).setImageResource(R.drawable.ic_mood_bad);
         if (positionClicked!=-1) {
             setPlayerMove(positionClicked, R.drawable.ic_mood_happy);
             FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game/" + counter + "_you").setValue(positionClicked);
@@ -399,12 +413,13 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
             counter++;
             canExit=false;
             enableEverything(false);
+            findViewById(R.id.wait_text).setVisibility(View.VISIBLE);
             if (moves.size()>=3) {
                 Set<Integer> winOrNot=checkIfWin(moves);
                 if (winOrNot!=null) {
                     canExit=true;
                     Toast.makeText(this, "Hurray!!! You won", Toast.LENGTH_SHORT).show();
-                    winImageShow(winOrNot,R.drawable.ic_mood_green);
+                    winImageShow(winOrNot,R.drawable.ic_mood_happy_green);
                     enableEverything(false);
                     writeToFinalNode();
                 }
@@ -439,21 +454,22 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
         Log.d("combiG", "iteration "+" arr "+integers);
 
-        ArrayList<Integer> combis=new ArrayList<>();
-        combis.addAll(integers);
-        if (combis.size()==r) {
+        if (integers.size()==r) {
             Set<Integer> integers1=new HashSet<>();
-            integers1.addAll(combis);
-            for (Set<Integer> integrs :
-                    WIN_CASES) {
-                if (integrs.containsAll(integers1))
+            integers1.addAll(integers);
+            Log.d("combi", "iteration "+" arr "+integers +" "+WIN_CASES.contains(integers1));
+            /*for (Set<Integer> integrs :
+                    WIN_CASES) {*/
+                if (WIN_CASES.contains(integers1))
                     return integers1;
-            }
-            Log.d("combi", "iteration "+" arr "+combis);
+            //}
             //return null;
         } else /*if (integers.size()>r)*/{
+            Log.d("combi-else", "iteration "+" arr "+integers);
         for (int i = 0; i < integers.size(); i++) {
-                combis.remove(i);
+            ArrayList<Integer> combis=new ArrayList<>();
+            combis.addAll(integers);
+            combis.remove(i);
             Set<Integer> integerSet=getCombi(combis, r);
             if (integerSet!=null) return integerSet;
             }
