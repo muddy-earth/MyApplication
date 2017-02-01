@@ -150,7 +150,7 @@ public class AllUsersList extends BaseActivity {
 
             holder.name.setText(data.getName());
 
-            Glide.with(AllUsersList.this).load(data.getImg_url()).placeholder(R.drawable.ic_person).into(holder.profile);
+            Glide.with(getApplicationContext()).load(data.getImg_url()).placeholder(R.drawable.ic_person).into(holder.profile);
 
             if (data.isOnline()) {
                 holder.online_offline.setImageResource(R.drawable.ic_online);

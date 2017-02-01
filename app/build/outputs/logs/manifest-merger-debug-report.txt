@@ -16,7 +16,6 @@ ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src
 application
 ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:5:5-49:19
 MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/AndroidManifest.xml:19:5-20:19
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:18:5-20:19
 MERGED from [com.android.support:design:25.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:25.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/AndroidManifest.xml:22:5-20
@@ -25,6 +24,8 @@ MERGED from [com.android.support:transition:25.1.0] /home/overtatech-4/AndroidSt
 MERGED from [com.android.support:cardview-v7:25.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.1.0/AndroidManifest.xml:22:5-20
 MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:19:5-29:19
+MERGED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.firebase:firebase-core:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-core/10.0.1/AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:24:5-33:19
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:24:5-28:19
@@ -113,7 +114,6 @@ ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src
 uses-sdk
 INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-database:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.firebase:firebase-database-connection:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/AndroidManifest.xml:3:5-42
 MERGED from [com.android.support:design:25.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/AndroidManifest.xml:21:5-23:62
@@ -125,6 +125,9 @@ MERGED from [com.android.support:recyclerview-v7:25.1.0] /home/overtatech-4/Andr
 MERGED from [com.android.support:cardview-v7:25.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.1.0/AndroidManifest.xml:20:5-43
 MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-auth-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-core:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-core/10.0.1/AndroidManifest.xml:4:5-42
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:17:5-42
@@ -146,6 +149,30 @@ MERGED from [com.android.support:support-compat:25.1.0] /home/overtatech-4/Andro
 	android:minSdkVersion
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:9-27:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:88-111
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:18-87
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:129-162
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:163-187
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:69-128
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:9-184
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:64-87
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:88-182
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:18-63
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:9-172
 	android:exported
@@ -154,12 +181,6 @@ ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4
 		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:86-145
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:19-85
-service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:9-27:19
-	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:88-111
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:18-87
 uses-permission#android.permission.INTERNET
 ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:20:5-66

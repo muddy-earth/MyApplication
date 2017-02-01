@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,8 +46,8 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
     Map<String,Object> movesHistory=new HashMap<>();
 
-    Set<Integer> moves=new HashSet<>();
-    Set<Integer> otherPlayerMoves=new HashSet<>();
+    ArrayList<Integer> moves=new ArrayList<>();
+    ArrayList<Integer> otherPlayerMoves=new ArrayList<>();
     int counter=0;
     private boolean canExit=true;
 
@@ -71,17 +72,21 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onFinish() {
-                progressDialog.dismiss();
-                new AlertDialog.Builder(GameActivity.this)
-                        .setTitle("Oops..")
-                        .setMessage("It seems 2'nd player is offline now. Relax, we will inform you when available")
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                supportFinishAfterTransition();
-                            }
-                        })
-                        .show();
+                try {
+                    progressDialog.dismiss();
+                    new AlertDialog.Builder(GameActivity.this)
+                            .setTitle("Oops..")
+                            .setMessage("It seems 2'nd player is offline now. Relax, we will inform you when available")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    supportFinishAfterTransition();
+                                }
+                            })
+                            .show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         };
         timer.start();
@@ -187,33 +192,33 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         set1.add(1);
         set1.add(2);
         Set<Integer> set2=new HashSet<>();
-        set1.add(3);
-        set1.add(4);
-        set1.add(5);
+        set2.add(3);
+        set2.add(4);
+        set2.add(5);
         Set<Integer> set3=new HashSet<>();
-        set1.add(6);
-        set1.add(7);
-        set1.add(8);
+        set3.add(6);
+        set3.add(7);
+        set3.add(8);
         Set<Integer> set4=new HashSet<>();
-        set1.add(0);
-        set1.add(3);
-        set1.add(6);
+        set4.add(0);
+        set4.add(3);
+        set4.add(6);
         Set<Integer> set5=new HashSet<>();
-        set1.add(1);
-        set1.add(4);
-        set1.add(7);
+        set5.add(1);
+        set5.add(4);
+        set5.add(7);
         Set<Integer> set6=new HashSet<>();
-        set1.add(2);
-        set1.add(5);
-        set1.add(8);
+        set6.add(2);
+        set6.add(5);
+        set6.add(8);
         Set<Integer> set7=new HashSet<>();
-        set1.add(0);
-        set1.add(4);
-        set1.add(8);
+        set7.add(0);
+        set7.add(4);
+        set7.add(8);
         Set<Integer> set8=new HashSet<>();
-        set1.add(2);
-        set1.add(4);
-        set1.add(6);
+        set8.add(2);
+        set8.add(4);
+        set8.add(6);
 
         WIN_CASES.add(set1);
         WIN_CASES.add(set2);
@@ -426,37 +431,60 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         img_8.setEnabled(enable);
     }
 
-    private Set<Integer> checkIfWin(Set<Integer> moves) {
+    private Set<Integer> checkIfWin(ArrayList<Integer> moves) {
         return getCombi(moves,3);
     }
 
-    private Set<Integer> getCombi(Set<Integer> integers, int r) {
+    private Set<Integer> getCombi(ArrayList<Integer> integers, int r) {
+
+        Log.d("combiG", "iteration "+" arr "+integers);
+
+        ArrayList<Integer> combis=new ArrayList<>();
+        combis.addAll(integers);
+        if (combis.size()==r) {
+            Set<Integer> integers1=new HashSet<>();
+            integers1.addAll(combis);
+            for (Set<Integer> integrs :
+                    WIN_CASES) {
+                if (integrs.containsAll(integers1))
+                    return integers1;
+            }
+            Log.d("combi", "iteration "+" arr "+combis);
+            //return null;
+        } else /*if (integers.size()>r)*/{
+        for (int i = 0; i < integers.size(); i++) {
+                combis.remove(i);
+            Set<Integer> integerSet=getCombi(combis, r);
+            if (integerSet!=null) return integerSet;
+            }
+        }/*else return null;*/
+        return null;
+    }
+    private void getCombi(Set<Integer> integers, ArrayList<Set<Integer>> arrayLists, int r) {
 
         for (int i = 0; i < integers.size(); i++) {
 
             Set<Integer> combis=new HashSet<>();
             combis.addAll(integers);
+            combis.remove(i);
             if (combis.size()==r) {
-                for (Set<Integer> integrs :
-                        WIN_CASES) {
-                    if (integrs.containsAll(combis)) return combis;
-                }
+                if (!checkifAlreadyAdded(combis, arrayLists))
+                    arrayLists.add(combis);
                 Log.d("combi", "iteration "+i+" arr "+combis);
             }
             else {
-                combis.remove(i);
-                getCombi(combis, r);
+                getCombi(combis,arrayLists, r);
             }
         }
-        return null;
     }
-
-    private boolean checkifAlreadyAdded(ArrayList<Integer> combis, ArrayList<ArrayList<Integer>> arrayLists) {
+    private boolean checkifAlreadyAdded(Set<Integer> combis, ArrayList<Set<Integer>> arrayLists) {
 
         for (int i = 0; i < arrayLists.size(); i++) {
             boolean matched=true;
-            for (int j = 0; j < combis.size(); j++) {
-                matched&=arrayLists.get(i).contains(combis.get(j));
+            Iterator<Integer> iterator=combis.iterator();
+            while (iterator.hasNext()){
+                Integer integer=iterator.next();
+                matched&=arrayLists.get(i).contains(integer);
             }
             if (matched) return true;
         }

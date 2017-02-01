@@ -8,4 +8,5 @@
 
     <string name="new_game">New Game</string>
     <string name="continue_game">Continue Game</string>
+    <!--<string name="default_web_client_id">AIzaSyBeaHWpAq2pZ7CQeq9Avf0Hl-csnYEflt8</string>-->
 </resources>
