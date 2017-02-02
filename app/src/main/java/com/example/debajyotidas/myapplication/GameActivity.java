@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import okhttp3.MediaType;
@@ -50,11 +51,14 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
     ArrayList<Integer> otherPlayerMoves=new ArrayList<>();
     int counter=0;
     private boolean canExit=true;
+    private boolean isWithComputer=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        isWithComputer=getIntent().getBooleanExtra("with_computer",false);
 
         init();
 
@@ -62,34 +66,11 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Waiting for user to be live...");
+        if (!isWithComputer)
         progressDialog.show();
 
-        timer=new CountDownTimer(30000,1000){
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-                try {
-                    progressDialog.dismiss();
-                    new AlertDialog.Builder(GameActivity.this)
-                            .setTitle("Oops..")
-                            .setMessage("It seems 2'nd player is offline now. Relax, we will inform you when available")
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    supportFinishAfterTransition();
-                                }
-                            })
-                            .show();
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        };
-        timer.start();
+        if (!isWithComputer)
+        startCountDown();
 
         valueEventListener=new ValueEventListener() {
             @Override
@@ -119,52 +100,91 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
             }
         };
-        if (UID.equals("no_uid")){
-            return;
-        }
-        otherUID=getIntent().getStringExtra("uid");
-        if (otherUID==null){
-            return;
-        }
-        regToken=getIntent().getStringExtra("reg_token");
-        if (regToken==null){
+
+        if (UID.equals("no_uid")) {
             return;
         }
 
+        if (!isWithComputer) {
+            otherUID = getIntent().getStringExtra("uid");
+            if (otherUID == null) {
+                return;
+            }
+            regToken = getIntent().getStringExtra("reg_token");
+            if (regToken == null) {
+                return;
+            }
+        }else{
+            otherUID="with_computer";
+        }
         Log.d("key_set", "UID : "+UID+
         "otherUID : "+otherUID);
 
+        if (!isWithComputer)
+        addListeners();
+    }
+
+    private void startCountDown() {
+        timer=new CountDownTimer(30000,1000){
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                try {
+                    progressDialog.dismiss();
+                    new AlertDialog.Builder(GameActivity.this)
+                            .setTitle("Oops..")
+                            .setMessage("It seems 2'nd player is offline now. Relax, we will inform you when available")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    supportFinishAfterTransition();
+                                }
+                            })
+                            .show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        timer.start();
+    }
+
+    private void addListeners() {
         FirebaseDatabase.getInstance().getReference("game/"+UID+"/isLive").setValue(true);
         FirebaseDatabase.getInstance().getReference("game/"+otherUID+"/isLive")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue()!=null) {
-                    boolean value = (boolean) dataSnapshot.getValue();
-                    //if (value!=null)
-                    if (value) {
-                    }else {
-                        String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
-                        if (reg_token.equals("no_token")){
-                            return ;
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue()!=null) {
+                            boolean value = (boolean) dataSnapshot.getValue();
+                            //if (value!=null)
+                            if (value) {
+                            }else {
+                                String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
+                                if (reg_token.equals("no_token")){
+                                    return ;
+                                }
+                                sendNotification(reg_token);
+                            }
+                        }else {
+                            String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
+                            if (reg_token.equals("no_token")){
+                                return ;
+                            }
+                            sendNotification(reg_token);
                         }
-                        sendNotification(reg_token);
+                        FirebaseDatabase.getInstance().getReference("game/"+otherUID+"/isLive").addValueEventListener(valueEventListener);
                     }
-                }else {
-                    String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
-                    if (reg_token.equals("no_token")){
-                        return ;
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
                     }
-                    sendNotification(reg_token);
-                }
-                FirebaseDatabase.getInstance().getReference("game/"+otherUID+"/isLive").addValueEventListener(valueEventListener);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+                });
         FirebaseDatabase.getInstance().getReference("game/" + otherUID + "/current_game").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -407,6 +427,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         else ((ImageButton)v).setImageResource(R.drawable.ic_mood_bad);
         if (positionClicked!=-1) {
             setPlayerMove(positionClicked, R.drawable.ic_mood_happy);
+            if (!isWithComputer)
             FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game/" + counter + "_you").setValue(positionClicked);
             moves.add(positionClicked);
             movesHistory.put(counter+"_you",positionClicked);
@@ -424,7 +445,47 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                     writeToFinalNode();
                 }
             }
+            if (isWithComputer&&canExit==false)
+            {
+                //call for computer move
+                computerMove();
+            }
         }
+    }
+
+    private void computerMove() {
+        new CountDownTimer(1000,1000){
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+            @Override
+            public void onFinish() {
+                Random random=new Random();
+                int com_move;
+                do{
+                    com_move=random.nextInt(9);
+
+                }while (moves.contains(com_move)||otherPlayerMoves.contains(com_move));
+                otherPlayerMoves.add((int) com_move);
+                movesHistory.put(counter+"_other",(int) com_move);
+                setPlayerMove((int) com_move, R.drawable.ic_mood_bad);
+                enableEverything(true);
+                findViewById(R.id.wait_text).setVisibility(View.GONE);
+                canExit=false;
+                if (otherPlayerMoves.size()>=3) {
+                    Set<Integer> winOrNot=checkIfWin(otherPlayerMoves);
+                    if (winOrNot!=null) {
+                        canExit=true;
+                        Toast.makeText(GameActivity.this, "Computer won", Toast.LENGTH_SHORT).show();
+                        winImageShow(winOrNot,R.drawable.ic_mood_sad_red);
+                        enableEverything(false);
+                        writeToFinalNode();
+                    }
+                }
+            }
+        }.start();
+
     }
 
     private void winImageShow(Set<Integer> winOrNot, int resource) {

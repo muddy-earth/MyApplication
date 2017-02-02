@@ -16,12 +16,12 @@
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/color/abc_tint_default.xml"
     },
     {
-        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
-        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/color/abc_tint_edittext.xml"
-    },
-    {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/color/abc_tint_edittext.xml"
     },
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",

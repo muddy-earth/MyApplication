@@ -10,7 +10,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.debajyotidas.myapplication.AllUsersList">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/with_computer"
+        android:text="With Computer"/>
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/with_computer"/>
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/or"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view"/>

@@ -45,6 +45,13 @@ public class AllUsersList extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_users_list);
 
+        findViewById(R.id.with_computer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AllUsersList.this,GameActivity.class).putExtra("with_computer",true));
+            }
+        });
+
         recyclerView=(RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(users));
