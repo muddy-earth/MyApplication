@@ -6,7 +6,14 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <string name="play">Play</string>
+    <string name="play_with_friend">Play with friend</string>
     <string name="new_game">New Game</string>
     <string name="continue_game">Continue Game</string>
+    <string name="challenge">Challenge</string>
+    <string name="beginner">Beginner</string>
+    <string name="medium">Medium</string>
+    <string name="higher">Higher</string>
+    <string name="same">Same</string>
     <!--<string name="default_web_client_id">AIzaSyBeaHWpAq2pZ7CQeq9Avf0Hl-csnYEflt8</string>-->
 </resources>

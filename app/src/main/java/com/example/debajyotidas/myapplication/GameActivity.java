@@ -2,8 +2,10 @@ package com.example.debajyotidas.myapplication;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.CountDownTimer;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -122,6 +124,19 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
         if (!isWithComputer)
         addListeners();
+
+        findViewById(R.id.relativeLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameActivity.this, ChatActivity.class);
+                intent.putExtra("other_uid",otherUID);
+                intent.putExtra("reg_token",regToken);
+                intent.putExtra("uid",UID);
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation(GameActivity.this, v, "profile");
+                startActivity(intent, options.toBundle());
+            }
+        });
     }
 
     private void startCountDown() {

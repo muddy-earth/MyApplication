@@ -48,6 +48,10 @@
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_action_bar_title_item.xml"
     },
     {
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/activity_splash.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/res/layout/activity_splash.xml"
+    },
+    {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_navigation_item_subheader.xml"
     },
@@ -214,6 +218,10 @@
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/activity_game.xml",
         "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/res/layout/activity_game.xml"
+    },
+    {
+        "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/dialog_view.xml",
+        "source": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/res/layout/dialog_view.xml"
     },
     {
         "merged": "/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",

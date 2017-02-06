@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.debajyotidas.myapplication.model.User;
@@ -26,24 +30,35 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Random;
 
-public class MainActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private final String TAG="MainActivity";
     private GoogleApiClient mGoogleApiClient;
     private final int RC_SIGN_IN=100;
     private boolean IS_FIRST_TIME=false;
+    private AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.content_main);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
+
+
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -60,23 +75,15 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                 .build();
 
         // Set the dimensions of the sign-in button.
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        /*SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
             }
-        });
+        });*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -126,6 +133,20 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
         Toast.makeText(this, "in method", Toast.LENGTH_SHORT).show();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    public void showDialog(View view){
+        View view1= LayoutInflater.from(this).inflate(R.layout.dialog_view,null);
+
+        view1.findViewById(R.id.rl1).setOnClickListener(this);
+        view1.findViewById(R.id.rl2).setOnClickListener(this);
+        view1.findViewById(R.id.rl3).setOnClickListener(this);
+        view1.findViewById(R.id.rl4).setOnClickListener(this);
+
+        alertDialog=new AlertDialog.Builder(this)
+                .setTitle(R.string.challenge)
+        .setView(view1).show();
+
     }
 
     @Override
@@ -219,5 +240,71 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Toast.makeText(this, "Connection failed", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        alertDialog.dismiss();
+        switch (v.getId()){
+            case R.id.rl1:
+                break;
+            case R.id.rl2:
+                break;
+            case R.id.rl3:
+                break;
+            case R.id.rl4:
+                break;
+        }
+        FirebaseDatabase.getInstance().getReference("users").orderByChild("online").equalTo(true)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.getChildrenCount()==0) {
+                    Toast.makeText(MainActivity.this, "No user Online now", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Iterator<DataSnapshot> iterator=dataSnapshot.getChildren().iterator();
+                Random random=new Random();
+                int randomNum=random.nextInt((int) dataSnapshot.getChildrenCount());
+                int i=0;
+                User user=null;
+                while (iterator.hasNext())
+                {
+                    if (i==randomNum){
+                        DataSnapshot datasnap=iterator.next();
+                        if (!datasnap.getKey().equals(UID)) {
+                            Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
+
+                            boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
+                            user=new User(String.valueOf(map.get("name")),
+                                    String.valueOf(map.get("img_url")),
+                                    isOnline,String.valueOf(map.get("reg_token")));
+                            user.setUID(datasnap.getKey());
+                        }
+                        break;
+                    }
+                    i++;
+                }
+
+                if (user!=null){
+                    startActivity(new Intent(MainActivity.this,GameActivity.class)
+                            .putExtra("uid",user.getUID())
+                            .putExtra("reg_token",user.getReg_token()));
+                }else
+                    Toast.makeText(MainActivity.this, "No user online now", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
     }
 }

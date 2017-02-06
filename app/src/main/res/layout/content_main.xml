@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
@@ -12,25 +12,43 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.debajyotidas.myapplication.MainActivity"
     tools:showIn="@layout/activity_main"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <Button
-        android:onClick="startNewGame"
-        android:text="@string/new_game"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/new_game" />
-    <Button
-        android:text="@string/continue_game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/continue_game" />
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+        <Button
+            android:layout_centerInParent="true"
+            android:onClick="showDialog"
+            android:text="@string/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_game" />
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/new_game"
+            android:text="@string/play_with_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/play_with_friend" />
 
-    <com.google.android.gms.common.SignInButton
+    </LinearLayout>
+
+
+   <!-- <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        />-->
 
-</LinearLayout>
+    <ImageButton
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_settings"/>
+
+</RelativeLayout>
