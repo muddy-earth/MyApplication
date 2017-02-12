@@ -19,5 +19,44 @@ public class Constants {
         String NAME="###@@!@#!@#n#a55m2e%%^#^&*$";
 
     }
+    public interface KEYS{
+
+         interface USERS{
+             String LAST_ONLINE="lastOnline";
+             String ONLINE="online";
+             String POINTS="points";
+             //String RATING="rating";
+             String REG_TOKEN="reg_token";
+             String PHOTO_URL="photo_url";
+             String WIN_COUNT="winCount";
+             String LOOSE_COUNT="looseCount";
+             String RECEVE_REQUEST_FROM_BEGINNER="receiveRequestFromBeginner";
+             String RECEVE_REQUEST_FROM_MEDIUM="receiveRequestFromMedium";
+             String RECEVE_REQUEST_FROM_HIGHER="receiveRequestFromHigher";
+        }
+    }
+
+public interface BET{
+    int BEGINNER =10;
+    int MEDIUM=20;
+    int HIGHER=30;
+    int SAME=5;
+}
+
+    public interface INTERVAL{
+        interface BEGINNER{
+            //long START=0;
+            long END=1000;
+        }
+        interface MEDIUM{
+            long START=1001;
+            long END=2000;
+        }
+        interface HIGHER{
+            long START=2001;
+            //long END=3000;
+        }
+
+    }
 
 }

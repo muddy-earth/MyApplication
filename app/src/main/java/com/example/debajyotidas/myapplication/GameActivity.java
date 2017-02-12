@@ -11,8 +11,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,11 +23,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 
@@ -43,6 +48,8 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
             = MediaType.parse("application/json; charset=utf-8");
     ValueEventListener valueEventListener;
 
+    private static final String TAG = "GameActivity";
+
     private ImageButton img_0,img_1,img_2,img_3,img_4,img_5,img_6,img_7,img_8;
 
     private final ArrayList<Set<Integer>> WIN_CASES=new ArrayList<>();
@@ -54,6 +61,11 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
     int counter=0;
     private boolean canExit=true;
     private boolean isWithComputer=false;
+    private ImageView img_mine,img_other;
+    private TextView text_mine,text_other;
+    long wingCount=0,looseCount=0,wingCountOther=0,looseCountOther=0,points,pointsOther;
+    //double rating,ratingOther;
+    long betRequested;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,16 +116,24 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         };
 
         if (UID.equals("no_uid")) {
+            Log.d(TAG, "onCreate: no_uid");
             return;
         }
 
         if (!isWithComputer) {
             otherUID = getIntent().getStringExtra("uid");
             if (otherUID == null) {
+                Log.d(TAG, "onCreate: no other_uid");
                 return;
             }
             regToken = getIntent().getStringExtra("reg_token");
             if (regToken == null) {
+                Log.d(TAG, "onCreate: no reg_token");
+                return;
+            }
+            betRequested= getIntent().getLongExtra("bet",-1);
+            if (betRequested==-1){
+                Log.d(TAG, "onCreate: no bet requested");
                 return;
             }
         }else{
@@ -174,6 +194,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        Log.d(TAG, "onDataChange: "+dataSnapshot.getValue());
                         if (dataSnapshot.getValue()!=null) {
                             boolean value = (boolean) dataSnapshot.getValue();
                             //if (value!=null)
@@ -217,6 +238,11 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                             Set<Integer> winOrNot=checkIfWin(otherPlayerMoves);
                             if (winOrNot!=null) {
                                 canExit=true;
+                                FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.LOOSE_COUNT)
+                                        .setValue(looseCountOther+1);
+                               // int pointsGained =calculatePoint(false);
+                                FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.POINTS)
+                                        .setValue(points-betRequested);
                                 Toast.makeText(GameActivity.this, "Ohh!! You loose", Toast.LENGTH_SHORT).show();
                                 winImageShow(winOrNot,R.drawable.ic_mood_sad_red);
                                 enableEverything(false);
@@ -232,6 +258,88 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
             }
         });
+
+        FirebaseDatabase.getInstance().getReference("users/"+UID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String,Object> map= (Map<String, Object>) dataSnapshot.getValue();
+                if (map==null){
+                    return;
+                }
+                if (map.containsKey(Constants.KEYS.USERS.PHOTO_URL))
+                    Glide.with(GameActivity.this).load(map.get(Constants.KEYS.USERS.PHOTO_URL)).into(img_mine);
+                /*if (map.containsKey(Constants.KEYS.USERS.RATING)){
+                    Object o =  map.get(Constants.KEYS.USERS.RATING);
+                    try{
+                        rating=(Long) o;
+                    }catch (ClassCastException e){
+                        rating=(Double) o;
+                    }
+                }*/
+                if (map.containsKey(Constants.KEYS.USERS.WIN_COUNT))
+                    wingCount= (Long) map.get(Constants.KEYS.USERS.WIN_COUNT);
+                if (map.containsKey(Constants.KEYS.USERS.LOOSE_COUNT))
+                    looseCount= (Long) map.get(Constants.KEYS.USERS.LOOSE_COUNT);
+                if (map.containsKey(Constants.KEYS.USERS.POINTS))
+                    points= (Long) map.get(Constants.KEYS.USERS.POINTS);
+
+                text_mine.setText(String.valueOf(wingCount)+"/"+looseCount+" : "+String.valueOf(points));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        FirebaseDatabase.getInstance().getReference("users/"+otherUID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String,Object> map= (Map<String, Object>) dataSnapshot.getValue();
+                if (map==null){
+                    return;
+                }
+                if (map.containsKey(Constants.KEYS.USERS.PHOTO_URL))
+                    Glide.with(GameActivity.this).load(map.get(Constants.KEYS.USERS.PHOTO_URL)).into(img_other);
+                /*if (map.containsKey(Constants.KEYS.USERS.RATING)) {
+                    Object o =  map.get(Constants.KEYS.USERS.RATING);
+
+                    try{
+                        ratingOther=(Long) o;
+                    }catch (ClassCastException e){
+                        ratingOther=(Double) o;
+                    }
+                }*/
+                if (map.containsKey(Constants.KEYS.USERS.WIN_COUNT))
+                    wingCountOther= (Long) map.get(Constants.KEYS.USERS.WIN_COUNT);
+                if (map.containsKey(Constants.KEYS.USERS.LOOSE_COUNT))
+                    looseCountOther= (Long) map.get(Constants.KEYS.USERS.LOOSE_COUNT);
+                if (map.containsKey(Constants.KEYS.USERS.POINTS))
+                    pointsOther= (Long) map.get(Constants.KEYS.USERS.POINTS);
+
+                text_other.setText(String.valueOf(wingCountOther)+"/"+looseCountOther+" : "+String.valueOf(pointsOther));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private int calculatePoint(double points) {
+
+        //if (didYouwin) return betRequested;
+       // else {
+            if (Constants.INTERVAL.BEGINNER.END>=points)
+                return Constants.BET.BEGINNER;
+            else if (Constants.INTERVAL.MEDIUM.END>=points&&points>=Constants.INTERVAL.MEDIUM.START)
+                return Constants.BET.MEDIUM;
+            else if (points>=Constants.INTERVAL.HIGHER.START)
+                return Constants.BET.HIGHER;
+       // }
+        return 0;
     }
 
     private void initWinCases() {
@@ -328,6 +436,12 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         img_7=(ImageButton) findViewById(R.id.img_7);
         img_8=(ImageButton) findViewById(R.id.img_8);
 
+        img_mine=(ImageView) findViewById(R.id.img_mine);
+        img_other=(ImageView) findViewById(R.id.img_other);
+
+        text_mine=(TextView) findViewById(R.id.move_mine);
+        text_other=(TextView) findViewById(R.id.move_other);
+
         img_0.setOnClickListener(this);
         img_1.setOnClickListener(this);
         img_2.setOnClickListener(this);
@@ -340,6 +454,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void sendNotification(final String reg_token) {
+        Log.d(TAG, "sendNotification: "+reg_token);
         new AsyncTask<Void,Void,Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -349,6 +464,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                     JSONObject dataJson=new JSONObject();
                     dataJson.put("message","Hi this is sent from device to device");
                     dataJson.put("sender",UID);
+                    dataJson.put("bet",calculatePoint(pointsOther));
                     dataJson.put("reg_token",reg_token);
                     json.put("data",dataJson);
                     json.put("to",regToken);
@@ -454,6 +570,11 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                 Set<Integer> winOrNot=checkIfWin(moves);
                 if (winOrNot!=null) {
                     canExit=true;
+                    FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.WIN_COUNT)
+                            .setValue(wingCount+1);
+                    int pointsGained =calculatePoint(pointsOther);
+                    FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.POINTS)
+                            .setValue(points+pointsGained);
                     Toast.makeText(this, "Hurray!!! You won", Toast.LENGTH_SHORT).show();
                     winImageShow(winOrNot,R.drawable.ic_mood_happy_green);
                     enableEverything(false);

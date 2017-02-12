@@ -47,7 +47,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-            gameNotification(remoteMessage.getData().get("message"),remoteMessage.getData().get("sender"),remoteMessage.getData().get("reg_token"));
+            gameNotification(remoteMessage.getData().get("message"),remoteMessage.getData().get("sender"),
+                    remoteMessage.getData().get("reg_token"), Long.parseLong(remoteMessage.getData().get("bet")));
         }
 
         // Check if message contains a notification payload.
@@ -88,9 +89,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
     }
-    private void gameNotification(String messageBody, String uid, String reg_token) {
+    private void gameNotification(String messageBody, String uid, String reg_token, long bet) {
         Intent intent = new Intent(this, GameActivity.class);
         intent.putExtra("uid",uid);
+        intent.putExtra("bet",bet);
         intent.putExtra("reg_token",reg_token);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -98,7 +100,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_online)
+                //.setSmallIcon(R.drawable.ic_online)
                 .setContentTitle("FCM Message")
                 .setContentText(messageBody)
                 .setAutoCancel(true)

@@ -3,16 +3,10 @@ package com.example.debajyotidas.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.debajyotidas.myapplication.model.User;
@@ -21,7 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,9 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.net.URI;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
@@ -94,40 +85,41 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid()+" n"+user.getDisplayName());
 
-                    //if (!Constants.IS_USER_CREATED) {
-                        //Constants.NAME = user.getDisplayName() == null ? "anonymous" : user.getDisplayName();
-                        //Constants.PHOTO_URI = user.getPhotoUrl() == null ? "" : user.getPhotoUrl().toString();
-                        //Constants.UID = user.getUid();
+                    preferences.edit().putString(Constants.SHARED_PREFS.UID,user.getUid()).apply();
 
-                        preferences.edit().putString(Constants.SHARED_PREFS.UID,user.getUid()).apply();
-                        String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token_yet");
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("users");
-                        myRef.child(user.getUid()+"/reg_token").setValue(reg_token);
+                }else mAuth.signInAnonymously()
+                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(TAG, "signInAnonymously:onComplete:" + task.isSuccessful());
 
-                        //Constants.IS_USER_CREATED=true;
-                   // }
-
-                }
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
+                                    Log.w(TAG, "signInAnonymously", task.getException());
+                                    Toast.makeText(MainActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                FirebaseUser user=task.getResult().getUser();
+                                preferences.edit().putString(Constants.SHARED_PREFS.UID,user.getUid()).apply();
+                                String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token_yet");
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference myRef = database.getReference("users");
+                                myRef.child(user.getUid()+"/reg_token").setValue(reg_token);
+                                //myRef.child(user.getUid()+"/rating").setValue((double)0.0f);
+                                myRef.child(user.getUid()+"/points").setValue(120);
+                                myRef.child(user.getUid()+"/online").setValue(true);
+                            }
+                        });
             }
         };
-        mAuth.signInAnonymously()
-                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInAnonymously:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInAnonymously", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    }
-                });
+    }
+
+    public void openSettings(View view){
+        startActivity(new Intent(this,SettingActivity.class));
     }
     public void signIn() {
         Toast.makeText(this, "in method", Toast.LENGTH_SHORT).show();
@@ -250,61 +242,122 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
     @Override
     public void onClick(View v) {
         alertDialog.dismiss();
+        long ratingStart;
+        long ratingEnd;
+        final long pointBet;
         switch (v.getId()){
             case R.id.rl1:
+                pointBet=Constants.BET.BEGINNER;
+                //ratingStart=Constants.INTERVAL.BEGINNER.START;
+                ratingEnd=Constants.INTERVAL.BEGINNER.END;
+                filterData(-1,ratingEnd,pointBet);
                 break;
             case R.id.rl2:
+                pointBet=Constants.BET.MEDIUM;
+                ratingStart=Constants.INTERVAL.MEDIUM.START;
+                ratingEnd=Constants.INTERVAL.MEDIUM.END;
+                filterData(ratingStart,ratingEnd,pointBet);
                 break;
             case R.id.rl3:
+                pointBet=Constants.BET.HIGHER;
+                ratingStart=Constants.INTERVAL.HIGHER.START;
+                //ratingEnd=Constants.INTERVAL.HIGHER.END;
+                filterData(ratingStart,-1,pointBet);
                 break;
             case R.id.rl4:
+                FirebaseDatabase.getInstance().getReference("users/"+preferences.getString(Constants.SHARED_PREFS.UID,""))
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Map<String , Object> map= (Map<String, Object>) dataSnapshot.getValue();
+                        long points= (Long) map.get("points");
+                        long betStart, betEnd;
+                        if (points<=Constants.BET.BEGINNER){
+                            betStart=-1;
+                            betEnd=Constants.INTERVAL.BEGINNER.END;
+                        }else if (points>Constants.BET.BEGINNER&&points<=Constants.BET.MEDIUM){
+                            betStart=Constants.INTERVAL.MEDIUM.START;
+                            betEnd=Constants.INTERVAL.MEDIUM.END;
+                        }else{
+                            betEnd=-1;
+                            betStart=Constants.INTERVAL.HIGHER.START;
+                        }
+                        long pointBet=Constants.BET.SAME;
+                        filterData(betStart,betEnd,pointBet);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
                 break;
         }
+
+    }
+
+    private void filterData(final long betStart, final long betEnd, final long pointBet) {
         FirebaseDatabase.getInstance().getReference("users").orderByChild("online").equalTo(true)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
+                    @Override
+                    public void onDataChange(final DataSnapshot dataSnapshot) {
 
-                if (dataSnapshot.getChildrenCount()==0) {
-                    Toast.makeText(MainActivity.this, "No user Online now", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Iterator<DataSnapshot> iterator=dataSnapshot.getChildren().iterator();
-                Random random=new Random();
-                int randomNum=random.nextInt((int) dataSnapshot.getChildrenCount());
-                int i=0;
-                User user=null;
-                while (iterator.hasNext())
-                {
-                    if (i==randomNum){
-                        DataSnapshot datasnap=iterator.next();
-                        if (!datasnap.getKey().equals(UID)) {
-                            Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
-
-                            boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
-                            user=new User(String.valueOf(map.get("name")),
-                                    String.valueOf(map.get("img_url")),
-                                    isOnline,String.valueOf(map.get("reg_token")));
-                            user.setUID(datasnap.getKey());
+                        if (dataSnapshot.getChildrenCount()==0) {
+                            Toast.makeText(MainActivity.this, "No user Online now", Toast.LENGTH_SHORT).show();
+                            return;
                         }
-                        break;
+
+                        Iterator<DataSnapshot> it=dataSnapshot.getChildren().iterator();
+                        ArrayList<DataSnapshot> iterator=new ArrayList<>();
+                        while (it.hasNext()){
+                            DataSnapshot snapshot=it.next();
+                            if (snapshot.getKey().equals(UID)) continue;
+                            Map<String , Object> map= (Map<String, Object>) snapshot.getValue();
+                            long points= ((Long) map.get("points"));
+                            if (betStart==-1){
+                                if (points<=betEnd) iterator.add(snapshot);
+                            }else if (betEnd==-1){
+                                if (points>=betStart) iterator.add(snapshot);
+                            }else if (points>=betStart&&points<=betEnd){
+                                iterator.add(snapshot);
+                            }
+                        }
+                        Random random=new Random();
+                        int randomNum=random.nextInt((int) dataSnapshot.getChildrenCount());
+                        int i=0;
+                        User user=null;
+                        while (i<iterator.size())
+                        {
+                            if (i==randomNum){
+                                DataSnapshot datasnap=iterator.get(i);
+                                if (!datasnap.getKey().equals(UID)&&!UID.equals("no_uid")) {
+                                    Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
+
+                                    boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
+                                    user=new User(String.valueOf(map.get("name")),
+                                            String.valueOf(map.get("img_url")),
+                                            isOnline,String.valueOf(map.get("reg_token")));
+                                    user.setUID(datasnap.getKey());
+                                    break;
+                                }
+                                //break;
+                            }
+                            i++;
+                        }
+                        if (user!=null){
+                            startActivity(new Intent(MainActivity.this,GameActivity.class)
+                                    .putExtra("uid",user.getUID())
+                                    .putExtra("bet",pointBet)
+                                    //.putExtra("with_computer",false)
+                                    .putExtra("reg_token",user.getReg_token()));
+                        }else
+                            Toast.makeText(MainActivity.this, "No user online now", Toast.LENGTH_SHORT).show();
                     }
-                    i++;
-                }
 
-                if (user!=null){
-                    startActivity(new Intent(MainActivity.this,GameActivity.class)
-                            .putExtra("uid",user.getUID())
-                            .putExtra("reg_token",user.getReg_token()));
-                }else
-                    Toast.makeText(MainActivity.this, "No user online now", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
     }
 }

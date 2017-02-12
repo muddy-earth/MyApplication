@@ -30,7 +30,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AllUsersList" />
-        <activity android:name=".GameActivity" />
+        <activity
+            android:name=".GameActivity"
+            android:screenOrientation="portrait" />
 
         <!-- [START firebase_service] -->
         <service android:name=".service.MyFirebaseMessagingService">
@@ -55,7 +57,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -48,7 +48,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.debajyotidas.myapplication.AllUsersList" />
-        <activity android:name="com.example.debajyotidas.myapplication.GameActivity" />
+        <activity
+            android:name="com.example.debajyotidas.myapplication.GameActivity"
+            android:screenOrientation="portrait" />
 
         <!-- [START firebase_service] -->
         <service android:name="com.example.debajyotidas.myapplication.service.MyFirebaseMessagingService" >
@@ -73,6 +75,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.debajyotidas.myapplication.ChatActivity" />
+        <activity
+            android:name="com.example.debajyotidas.myapplication.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name="com.example.debajyotidas.myapplication.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
          FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"
