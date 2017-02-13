@@ -315,10 +315,20 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                             Map<String , Object> map= (Map<String, Object>) snapshot.getValue();
                             long points= ((Long) map.get("points"));
                             if (betStart==-1){
-                                if (points<=betEnd) iterator.add(snapshot);
+                                if (points<=betEnd){
+                                    //Beginner
+                                    if (!map.containsKey(Constants.KEYS.USERS.BLOCK_REQUEST_FROM_BEGINNER))
+                                    iterator.add(snapshot);
+                                }
                             }else if (betEnd==-1){
-                                if (points>=betStart) iterator.add(snapshot);
+                                if (points>=betStart){
+                                    //Higher
+                                    if (!map.containsKey(Constants.KEYS.USERS.BLOCK_REQUEST_FROM_HIGHER))
+                                    iterator.add(snapshot);
+                                }
                             }else if (points>=betStart&&points<=betEnd){
+                                //Medium
+                                if (!map.containsKey(Constants.KEYS.USERS.BLOCK_REQUEST_FROM_MEDIUM))
                                 iterator.add(snapshot);
                             }
                         }

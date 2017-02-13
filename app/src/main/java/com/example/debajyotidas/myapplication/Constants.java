@@ -30,9 +30,9 @@ public class Constants {
              String PHOTO_URL="photo_url";
              String WIN_COUNT="winCount";
              String LOOSE_COUNT="looseCount";
-             String RECEVE_REQUEST_FROM_BEGINNER="receiveRequestFromBeginner";
-             String RECEVE_REQUEST_FROM_MEDIUM="receiveRequestFromMedium";
-             String RECEVE_REQUEST_FROM_HIGHER="receiveRequestFromHigher";
+             String BLOCK_REQUEST_FROM_BEGINNER ="blockRequestFromBeginner";
+             String BLOCK_REQUEST_FROM_MEDIUM ="blockRequestFromMedium";
+             String BLOCK_REQUEST_FROM_HIGHER ="blockRequestFromHigher";
         }
     }
 
