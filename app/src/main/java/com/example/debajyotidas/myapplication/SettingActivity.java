@@ -28,7 +28,7 @@ public class SettingActivity extends AppCompatPreferenceActivity {
             SharedPreferences preferences=getSharedPreferences(Constants.SHARED_PREFS.NAME,MODE_PRIVATE);
             String UID=preferences.getString(Constants.SHARED_PREFS.UID,"no_uid");
             if (UID.equals("no_uid")) {
-                return false;
+                return true;
             }
             if (preference.getKey().equals("switch_preference_beginner")){
                 FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.BLOCK_REQUEST_FROM_BEGINNER)

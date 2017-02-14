@@ -41,6 +41,7 @@ public interface BET{
     int MEDIUM=20;
     int HIGHER=30;
     int SAME=5;
+    int COMPUTER=10;
 }
 
     public interface INTERVAL{

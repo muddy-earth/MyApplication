@@ -144,6 +144,41 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
         if (!isWithComputer)
         addListeners();
+        else {
+            FirebaseDatabase.getInstance().getReference("users/"+UID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Map<String,Object> map= (Map<String, Object>) dataSnapshot.getValue();
+                    if (map==null){
+                        return;
+                    }
+                    if (map.containsKey(Constants.KEYS.USERS.PHOTO_URL))
+                        Glide.with(GameActivity.this).load(map.get(Constants.KEYS.USERS.PHOTO_URL)).into(img_mine);
+                /*if (map.containsKey(Constants.KEYS.USERS.RATING)){
+                    Object o =  map.get(Constants.KEYS.USERS.RATING);
+                    try{
+                        rating=(Long) o;
+                    }catch (ClassCastException e){
+                        rating=(Double) o;
+                    }
+                }*/
+                    if (map.containsKey(Constants.KEYS.USERS.WIN_COUNT))
+                        wingCount= (Long) map.get(Constants.KEYS.USERS.WIN_COUNT);
+                    if (map.containsKey(Constants.KEYS.USERS.LOOSE_COUNT))
+                        looseCount= (Long) map.get(Constants.KEYS.USERS.LOOSE_COUNT);
+                    if (map.containsKey(Constants.KEYS.USERS.POINTS))
+                        points= (Long) map.get(Constants.KEYS.USERS.POINTS);
+
+                    text_mine.setText(String.valueOf(wingCount)+"/"+looseCount+" : "+String.valueOf(points));
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
 
         findViewById(R.id.relativeLayout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -570,11 +605,16 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                 Set<Integer> winOrNot=checkIfWin(moves);
                 if (winOrNot!=null) {
                     canExit=true;
-                    FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.WIN_COUNT)
-                            .setValue(wingCount+1);
-                    int pointsGained =calculatePoint(pointsOther);
-                    FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.POINTS)
-                            .setValue(points+pointsGained);
+                    if (isWithComputer){
+                        FirebaseDatabase.getInstance().getReference("users/" + UID + "/" + Constants.KEYS.USERS.POINTS)
+                                .setValue(points + Constants.BET.COMPUTER);
+                    }else {
+                        FirebaseDatabase.getInstance().getReference("users/" + UID + "/" + Constants.KEYS.USERS.WIN_COUNT)
+                                .setValue(wingCount + 1);
+                        int pointsGained = calculatePoint(pointsOther);
+                        FirebaseDatabase.getInstance().getReference("users/" + UID + "/" + Constants.KEYS.USERS.POINTS)
+                                .setValue(points + pointsGained);
+                    }
                     Toast.makeText(this, "Hurray!!! You won", Toast.LENGTH_SHORT).show();
                     winImageShow(winOrNot,R.drawable.ic_mood_happy_green);
                     enableEverything(false);

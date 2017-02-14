@@ -7,15 +7,15 @@
         <SwitchPreference
             android:key="switch_preference_beginner"
             android:title="Beginner"
-            android:summary="receive game request from beginners" />
+            android:summary="block game request from beginners" />
         <SwitchPreference
             android:key="switch_preference_medium"
             android:title="Medium"
-            android:summary="receive game request from medium" />
+            android:summary="block game request from medium" />
         <SwitchPreference
             android:key="switch_preference_higher"
             android:title="Higher"
-            android:summary="receive game request from higher" />
+            android:summary="block game request from higher" />
     </PreferenceCategory>
 
    <!-- <PreferenceCategory

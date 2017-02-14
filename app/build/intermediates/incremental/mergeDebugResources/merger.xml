@@ -1901,7 +1901,7 @@
         <item>Entry 1</item>
         <item>Entry 2</item>
         <item>Entry 3</item>
-    </string-array><string name="challenge">Challenge</string><string name="continue_game">Continue Game</string><string name="higher">Higher</string><string-array name="pref_example_list_values">
+    </string-array><string name="play_with_computer">Play with Computer</string><string name="challenge">Challenge</string><string name="continue_game">Continue Game</string><string name="higher">Higher</string><string-array name="pref_example_list_values">
         <item>1</item>
         <item>0</item>
         <item>-1</item>

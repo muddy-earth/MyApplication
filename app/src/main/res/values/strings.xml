@@ -8,6 +8,7 @@
 
     <string name="play">Play</string>
     <string name="play_with_friend">Play with friend</string>
+    <string name="play_with_computer">Play with Computer</string>
     <string name="new_game">New Game</string>
     <string name="continue_game">Continue Game</string>
     <string name="challenge">Challenge</string>

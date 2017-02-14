@@ -2,11 +2,14 @@ package com.example.debajyotidas.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.debajyotidas.myapplication.model.User;
@@ -42,6 +45,9 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
     private final int RC_SIGN_IN=100;
     private boolean IS_FIRST_TIME=false;
     private AlertDialog alertDialog;
+    private Button play,play_with_computer, play_with_friend;
+    private ProgressBar progressBar;
+    private CountDownTimer cdt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +55,10 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-
+        play=(Button) findViewById(R.id.play);
+        play_with_computer=(Button) findViewById(R.id.play_with_computer);
+        play_with_friend=(Button) findViewById(R.id.play_with_friend);
+        progressBar=(ProgressBar) findViewById(R.id.progress_bar);
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -75,6 +84,25 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
             }
         });*/
 
+        cdt=new CountDownTimer(10000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if (millisUntilFinished==5000){
+                    Toast.makeText(MainActivity.this, "slow network connection", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                Toast.makeText(MainActivity.this, "Couldn't load. Please try again.", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+                enableAll();
+            }
+        };
+
+        //Wait for Auth change
+        cdt.start();
+
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -86,6 +114,9 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid()+" n"+user.getDisplayName());
 
                     preferences.edit().putString(Constants.SHARED_PREFS.UID,user.getUid()).apply();
+                    enableAll();
+                    cdt.cancel();
+                    progressBar.setVisibility(View.GONE);
 
                 }else mAuth.signInAnonymously()
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
@@ -111,11 +142,21 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                                 //myRef.child(user.getUid()+"/rating").setValue((double)0.0f);
                                 myRef.child(user.getUid()+"/points").setValue(120);
                                 myRef.child(user.getUid()+"/online").setValue(true);
+
+                                enableAll();
+                                cdt.cancel();
+                                progressBar.setVisibility(View.GONE);
                             }
                         });
             }
         };
 
+    }
+
+    private void enableAll() {
+        play.setEnabled(true);
+        play_with_computer.setEnabled(true);
+        play_with_friend.setEnabled(true);
     }
 
     public void openSettings(View view){
@@ -139,6 +180,12 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                 .setTitle(R.string.challenge)
         .setView(view1).show();
 
+    }
+
+    public void playWithComputer(View  view){
+        startActivity(new Intent(this,GameActivity.class)
+                //.putExtra("bet",Constants.BET.BEGINNER)
+                .putExtra("with_computer",true));
     }
 
     @Override
@@ -242,6 +289,10 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
     @Override
     public void onClick(View v) {
         alertDialog.dismiss();
+        //disable button, work in progress of click
+        play.setEnabled(false);
+        progressBar.setVisibility(View.VISIBLE);
+        cdt.start();
         long ratingStart;
         long ratingEnd;
         final long pointBet;
@@ -333,7 +384,9 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                             }
                         }
                         Random random=new Random();
-                        int randomNum=random.nextInt((int) dataSnapshot.getChildrenCount());
+                        int randomNum=0;
+                        if (iterator.size()>0)
+                            randomNum=random.nextInt(iterator.size());
                         int i=0;
                         User user=null;
                         while (i<iterator.size())
@@ -362,6 +415,11 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                                     .putExtra("reg_token",user.getReg_token()));
                         }else
                             Toast.makeText(MainActivity.this, "No user online now", Toast.LENGTH_SHORT).show();
+
+                        //Enable button to press again
+                        play.setEnabled(true);
+                        progressBar.setVisibility(View.GONE);
+                        cdt.cancel();
                     }
 
                     @Override

@@ -19,15 +19,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/ll1">
         <Button
+            android:enabled="false"
             android:layout_centerInParent="true"
             android:onClick="showDialog"
             android:text="@string/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/new_game" />
+            android:id="@+id/play" />
         <Button
+            android:enabled="false"
+            android:onClick="playWithComputer"
+            android:layout_centerInParent="true"
+            android:text="@string/play_with_computer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/play_with_computer" />
+
+        <Button
+            android:enabled="false"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/new_game"
             android:text="@string/play_with_friend"
@@ -36,6 +48,21 @@
             android:id="@+id/play_with_friend" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll1"
+        android:gravity="center">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/progress_bar"/>
+
+    </LinearLayout>
+
 
 
    <!-- <com.google.android.gms.common.SignInButton
