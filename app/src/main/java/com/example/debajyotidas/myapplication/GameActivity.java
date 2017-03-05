@@ -1,5 +1,6 @@
 package com.example.debajyotidas.myapplication;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,7 +10,9 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,7 +42,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class GameActivity extends BaseActivity implements View.OnClickListener {
+public abstract class GameActivity extends BaseActivity implements View.OnClickListener {
 
     CountDownTimer timer;
     String otherUID,regToken;
@@ -59,13 +62,17 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
     ArrayList<Integer> moves=new ArrayList<>();
     ArrayList<Integer> otherPlayerMoves=new ArrayList<>();
     int counter=0;
-    private boolean canExit=true;
-    private boolean isWithComputer=false;
-    private ImageView img_mine,img_other;
-    private TextView text_mine,text_other;
+    protected boolean canExit=true;
+    protected boolean isWithComputer=false;
+    protected ImageView img_mine;
+    private ImageView img_other;
+    protected TextView text_mine;
+    private TextView text_other;
     long wingCount=0,looseCount=0,wingCountOther=0,looseCountOther=0,points,pointsOther;
     //double rating,ratingOther;
     long betRequested;
+
+    protected abstract void onGridItemClick(int position);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +85,13 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
         initWinCases();
 
-        progressDialog=new ProgressDialog(this);
+        /*progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Waiting for user to be live...");
         if (!isWithComputer)
         progressDialog.show();
 
         if (!isWithComputer)
-        startCountDown();
+        startCountDown();*/
 
         valueEventListener=new ValueEventListener() {
             @Override
@@ -115,13 +122,13 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
             }
         };
 
-        if (UID.equals("no_uid")) {
+        /*if (UID.equals("no_uid")) {
             Log.d(TAG, "onCreate: no_uid");
             return;
-        }
+        }*/
 
-        if (!isWithComputer) {
-            otherUID = getIntent().getStringExtra("uid");
+        /*if (!isWithComputer) {
+            *//*otherUID = getIntent().getStringExtra("uid");
             if (otherUID == null) {
                 Log.d(TAG, "onCreate: no other_uid");
                 return;
@@ -135,14 +142,14 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
             if (betRequested==-1){
                 Log.d(TAG, "onCreate: no bet requested");
                 return;
-            }
+            }*//*
         }else{
             otherUID="with_computer";
-        }
+        }*/
         Log.d("key_set", "UID : "+UID+
         "otherUID : "+otherUID);
 
-        if (!isWithComputer)
+        /*if (!isWithComputer)
         addListeners();
         else {
             FirebaseDatabase.getInstance().getReference("users/"+UID).addValueEventListener(new ValueEventListener() {
@@ -154,14 +161,14 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                     }
                     if (map.containsKey(Constants.KEYS.USERS.PHOTO_URL))
                         Glide.with(GameActivity.this).load(map.get(Constants.KEYS.USERS.PHOTO_URL)).into(img_mine);
-                /*if (map.containsKey(Constants.KEYS.USERS.RATING)){
+                *//*if (map.containsKey(Constants.KEYS.USERS.RATING)){
                     Object o =  map.get(Constants.KEYS.USERS.RATING);
                     try{
                         rating=(Long) o;
                     }catch (ClassCastException e){
                         rating=(Double) o;
                     }
-                }*/
+                }*//*
                     if (map.containsKey(Constants.KEYS.USERS.WIN_COUNT))
                         wingCount= (Long) map.get(Constants.KEYS.USERS.WIN_COUNT);
                     if (map.containsKey(Constants.KEYS.USERS.LOOSE_COUNT))
@@ -178,9 +185,9 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
                 }
             });
-        }
+        }*/
 
-        findViewById(R.id.relativeLayout).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.relativeLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GameActivity.this, ChatActivity.class);
@@ -191,10 +198,10 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                         makeSceneTransitionAnimation(GameActivity.this, v, "profile");
                 startActivity(intent, options.toBundle());
             }
-        });
+        });*/
     }
 
-    private void startCountDown() {
+    protected void startCountDown() {
         timer=new CountDownTimer(30000,1000){
             @Override
             public void onTick(long millisUntilFinished) {
@@ -223,39 +230,8 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         timer.start();
     }
 
-    private void addListeners() {
-        FirebaseDatabase.getInstance().getReference("game/"+UID+"/isLive").setValue(true);
-        FirebaseDatabase.getInstance().getReference("game/"+otherUID+"/isLive")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.d(TAG, "onDataChange: "+dataSnapshot.getValue());
-                        if (dataSnapshot.getValue()!=null) {
-                            boolean value = (boolean) dataSnapshot.getValue();
-                            //if (value!=null)
-                            if (value) {
-                            }else {
-                                String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
-                                if (reg_token.equals("no_token")){
-                                    return ;
-                                }
-                                sendNotification(reg_token);
-                            }
-                        }else {
-                            String reg_token=preferences.getString(Constants.SHARED_PREFS.REG_TOKEN,"no_token");
-                            if (reg_token.equals("no_token")){
-                                return ;
-                            }
-                            sendNotification(reg_token);
-                        }
-                        FirebaseDatabase.getInstance().getReference("game/"+otherUID+"/isLive").addValueEventListener(valueEventListener);
-                    }
+    protected void addListeners() {
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
         FirebaseDatabase.getInstance().getReference("game/" + otherUID + "/current_game").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -265,7 +241,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                         long move= (long) map.get((otherPlayerMoves.size())+"_you");
                         otherPlayerMoves.add((int) move);
                         movesHistory.put(counter+"_other",(int) move);
-                        setPlayerMove((int) move, R.drawable.ic_mood_bad);
+                        setPlayerMove((int) move, R.drawable.cross_black);
                         enableEverything(true);
                         findViewById(R.id.wait_text).setVisibility(View.GONE);
                         canExit=false;
@@ -279,7 +255,22 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                                 FirebaseDatabase.getInstance().getReference("users/"+UID+"/"+Constants.KEYS.USERS.POINTS)
                                         .setValue(points-betRequested);
                                 Toast.makeText(GameActivity.this, "Ohh!! You loose", Toast.LENGTH_SHORT).show();
-                                winImageShow(winOrNot,R.drawable.ic_mood_sad_red);
+                                //#####################################Dialog of winner#########################
+                                final Dialog dialog=new Dialog(GameActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+                                View view= LayoutInflater.from(GameActivity.this).inflate(R.layout.dialog_view_loose,null,false);
+                                ((TextView)view.findViewById(R.id.current_score)).setText("SCORE : "+(points-betRequested));
+                                ((TextView)view.findViewById(R.id.next_score)).setText("next score : ");
+                                (view.findViewById(R.id.play_again)).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        onPlayAgainClick();
+                                    }
+                                });
+                                dialog.setContentView(view);
+                                dialog.show();
+                                //##########################################################################
+                                winImageShow(winOrNot,R.drawable.cross_red);
                                 enableEverything(false);
                                 writeToFinalNode();
                             }
@@ -363,17 +354,15 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private int calculatePoint(double points) {
 
-        //if (didYouwin) return betRequested;
-       // else {
+
+    protected int calculatePoint(double points) {
             if (Constants.INTERVAL.BEGINNER.END>=points)
                 return Constants.BET.BEGINNER;
             else if (Constants.INTERVAL.MEDIUM.END>=points&&points>=Constants.INTERVAL.MEDIUM.START)
                 return Constants.BET.MEDIUM;
             else if (points>=Constants.INTERVAL.HIGHER.START)
                 return Constants.BET.HIGHER;
-       // }
         return 0;
     }
 
@@ -422,11 +411,12 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private void writeToFinalNode() {
+    protected void writeToFinalNode() {
         FirebaseDatabase.getInstance().getReference("game/"+UID+"/"+otherUID).push().setValue(movesHistory);
+        FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game").setValue(null);
     }
 
-    private void setPlayerMove(int move, int resource) {
+    protected void setPlayerMove(int move, int resource) {
 
         switch (move){
             case 0:
@@ -488,41 +478,9 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         img_8.setOnClickListener(this);
     }
 
-    private void sendNotification(final String reg_token) {
-        Log.d(TAG, "sendNotification: "+reg_token);
-        new AsyncTask<Void,Void,Void>(){
-            @Override
-            protected Void doInBackground(Void... params) {
-                try {
-                    OkHttpClient client = new OkHttpClient();
-                    JSONObject json=new JSONObject();
-                    JSONObject dataJson=new JSONObject();
-                    dataJson.put("message","Hi this is sent from device to device");
-                    dataJson.put("sender",UID);
-                    dataJson.put("bet",calculatePoint(pointsOther));
-                    dataJson.put("reg_token",reg_token);
-                    json.put("data",dataJson);
-                    json.put("to",regToken);
-                    RequestBody body = RequestBody.create(JSON, json.toString());
-                    Request request = new Request.Builder()
-                            .header("Authorization","key="+Constants.LEGACY_SERVER_KEY)
-                            .url(Constants.FIREBASE_PUSH_URL)
-                            .post(body)
-                            .build();
-                    Response response = client.newCall(request).execute();
-                    String finalResponse = response.body().string();
-                }catch (Exception e){
-                    //Log.d(TAG,e+"");
-                }
-                return null;
-            }
-        }.execute();
-
-    }
 
     @Override
     public void onBackPressed() {
-
         if (!canExit)
             new AlertDialog.Builder(this)
                     .setTitle("Alert")
@@ -541,7 +499,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         // if (canExit) {
         super.onDestroy();
         FirebaseDatabase.getInstance().getReference("game/" + UID + "/isLive").setValue(false);
-        FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game").setValue(null);
+        //FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game").setValue(null);
     }
     /**
      * Called when a view has been clicked.
@@ -550,6 +508,11 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
+
+        if (movesHistory.size()>=9){
+            Toast.makeText(this, "game completed", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         int positionClicked=-1;
 
@@ -583,53 +546,46 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
 
-        if (moves.contains(positionClicked)||otherPlayerMoves.contains(positionClicked)){
-            Toast.makeText(this, "Not allowed", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        onGridItemClick(positionClicked);
 
-        if (counter%2==0)
-            ((ImageButton)v).setImageResource(R.drawable.ic_mood_happy);
-        else ((ImageButton)v).setImageResource(R.drawable.ic_mood_bad);
-        if (positionClicked!=-1) {
-            setPlayerMove(positionClicked, R.drawable.ic_mood_happy);
-            if (!isWithComputer)
-            FirebaseDatabase.getInstance().getReference("game/" + UID + "/current_game/" + counter + "_you").setValue(positionClicked);
-            moves.add(positionClicked);
-            movesHistory.put(counter+"_you",positionClicked);
-            counter++;
-            canExit=false;
-            enableEverything(false);
-            findViewById(R.id.wait_text).setVisibility(View.VISIBLE);
-            if (moves.size()>=3) {
-                Set<Integer> winOrNot=checkIfWin(moves);
-                if (winOrNot!=null) {
-                    canExit=true;
-                    if (isWithComputer){
-                        FirebaseDatabase.getInstance().getReference("users/" + UID + "/" + Constants.KEYS.USERS.POINTS)
-                                .setValue(points + Constants.BET.COMPUTER);
-                    }else {
-                        FirebaseDatabase.getInstance().getReference("users/" + UID + "/" + Constants.KEYS.USERS.WIN_COUNT)
-                                .setValue(wingCount + 1);
-                        int pointsGained = calculatePoint(pointsOther);
-                        FirebaseDatabase.getInstance().getReference("users/" + UID + "/" + Constants.KEYS.USERS.POINTS)
-                                .setValue(points + pointsGained);
-                    }
-                    Toast.makeText(this, "Hurray!!! You won", Toast.LENGTH_SHORT).show();
-                    winImageShow(winOrNot,R.drawable.ic_mood_happy_green);
-                    enableEverything(false);
-                    writeToFinalNode();
-                }
-            }
-            if (isWithComputer&&canExit==false)
-            {
-                //call for computer move
-                computerMove();
-            }
-        }
     }
 
-    private void computerMove() {
+    protected void showDialogForWin(long updatedPoint) {
+        final Dialog dialog=new Dialog(this,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+        View view= LayoutInflater.from(this).inflate(R.layout.dialog_view_win,null,false);
+        ((TextView)view.findViewById(R.id.current_score)).setText("SCORE : "+(updatedPoint));
+        ((TextView)view.findViewById(R.id.next_score)).setText("next score : ");
+        (view.findViewById(R.id.share_score)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onShareClick();
+            }
+        });
+        (view.findViewById(R.id.play_again)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                onPlayAgainClick();
+            }
+        });
+
+        dialog.setContentView(view);
+        dialog.show();
+    }
+
+    private void onShareClick() {
+        //Check whether user is login or not
+        // TODO: 23/2/17  Decide how to share score
+        /**
+         * todo Decide how to share score
+         */
+
+    }
+    private void onPlayAgainClick() {
+        this.recreate();
+    }
+
+    protected void computerMove() {
         new CountDownTimer(1000,1000){
             @Override
             public void onTick(long millisUntilFinished) {
@@ -645,7 +601,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                 }while (moves.contains(com_move)||otherPlayerMoves.contains(com_move));
                 otherPlayerMoves.add((int) com_move);
                 movesHistory.put(counter+"_other",(int) com_move);
-                setPlayerMove((int) com_move, R.drawable.ic_mood_bad);
+                setPlayerMove((int) com_move, R.drawable.cross_black);
                 enableEverything(true);
                 findViewById(R.id.wait_text).setVisibility(View.GONE);
                 canExit=false;
@@ -653,8 +609,23 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
                     Set<Integer> winOrNot=checkIfWin(otherPlayerMoves);
                     if (winOrNot!=null) {
                         canExit=true;
+                        //#####################################Dialog of winner#########################
+                        final Dialog dialog=new Dialog(GameActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+                        View view= LayoutInflater.from(GameActivity.this).inflate(R.layout.dialog_view_loose,null,false);
+                        ((TextView)view.findViewById(R.id.current_score)).setText("SCORE : "+(points));
+                        ((TextView)view.findViewById(R.id.next_score)).setText("next score : ");
+                        (view.findViewById(R.id.play_again)).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                onPlayAgainClick();
+                            }
+                        });
+                        dialog.setContentView(view);
+                        dialog.show();
+                        //##########################################################################
                         Toast.makeText(GameActivity.this, "Computer won", Toast.LENGTH_SHORT).show();
-                        winImageShow(winOrNot,R.drawable.ic_mood_sad_red);
+                        winImageShow(winOrNot,R.drawable.cross_red);
                         enableEverything(false);
                         writeToFinalNode();
                     }
@@ -664,14 +635,14 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private void winImageShow(Set<Integer> winOrNot, int resource) {
+    protected void winImageShow(Set<Integer> winOrNot, int resource) {
         for (Integer integer :
                 winOrNot) {
             setPlayerMove(integer,resource);
         }
     }
 
-    private void enableEverything(boolean enable) {
+    protected void enableEverything(boolean enable) {
         img_0.setEnabled(enable);
         img_1.setEnabled(enable);
         img_2.setEnabled(enable);
@@ -683,7 +654,7 @@ public class GameActivity extends BaseActivity implements View.OnClickListener {
         img_8.setEnabled(enable);
     }
 
-    private Set<Integer> checkIfWin(ArrayList<Integer> moves) {
+    protected Set<Integer> checkIfWin(ArrayList<Integer> moves) {
         return getCombi(moves,3);
     }
 

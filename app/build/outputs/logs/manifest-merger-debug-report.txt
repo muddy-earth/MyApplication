@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:2:1-70:12
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:2:1-76:12
 	package
 		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:3:5-53
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
@@ -14,31 +14,32 @@ ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:5:5-68:19
-MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/AndroidManifest.xml:19:5-20:19
-MERGED from [com.android.support:design:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:appcompat-v7:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:transition:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:cardview-v7:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.1.1/AndroidManifest.xml:22:5-20
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:9:5-20
-MERGED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:19:5-29:19
-MERGED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:19:5-25:19
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:18:5-20:19
-MERGED from [com.android.support:support-vector-drawable:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/AndroidManifest.xml:23:5-20
-MERGED from [com.google.firebase:firebase-core:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-core/10.0.1/AndroidManifest.xml:5:5-20
-MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:24:5-33:19
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:24:5-28:19
-MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:28:5-50:19
-MERGED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:4:5-7:19
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/AndroidManifest.xml:25:5-20
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:5:5-74:19
+MERGED from [com.google.firebase:firebase-auth:10.2.0] /home/overtatech-4/.android/build-cache/fdb148f27972d97f832e0959bbd273ff4737d2e0/output/AndroidManifest.xml:19:5-20:19
+MERGED from [com.android.support:design:25.2.0] /home/overtatech-4/.android/build-cache/e0db561fe64552a17ad0b5b03d9b2aecb4550c89/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:25.2.0] /home/overtatech-4/.android/build-cache/ce197fd356320e62fcb467ce170b19d0ebbc39cd/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] /home/overtatech-4/.android/build-cache/38e11da31027171d97a29982a769040b2d1bfa69/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:transition:25.2.0] /home/overtatech-4/.android/build-cache/d35339f7f36d25979c1fe5fdc4a11f564301fb4d/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:25.2.0] /home/overtatech-4/.android/build-cache/9a91f40f5014e5a3329f0b5181d453cb633ca936/output/AndroidManifest.xml:22:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/overtatech-4/.android/build-cache/74b86b296ae4013f84a8b0f8138cd8d0993c0a29/output/AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-messaging:10.2.0] /home/overtatech-4/.android/build-cache/785d19364476af4f642b74b076186f1f89c2336d/output/AndroidManifest.xml:19:5-29:19
+MERGED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-base:10.2.0] /home/overtatech-4/.android/build-cache/99e92269e23ad9a392381593fea815df535d71d8/output/AndroidManifest.xml:18:5-20:19
+MERGED from [com.android.support:support-vector-drawable:25.2.0] /home/overtatech-4/.android/build-cache/d03cae3571336325c11efc887b04d5106647b601/output/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-crash:10.2.0] /home/overtatech-4/.android/build-cache/136baf9cd88febe98ba304695db5332d7e16a645/output/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-core:10.2.0] /home/overtatech-4/.android/build-cache/7847e6377e360e19ef55200533e66e23de42f187/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:24:5-33:19
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:28:5-50:19
+MERGED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:10.2.0] /home/overtatech-4/.android/build-cache/8e8ac5876d560154d5b2b6dc313ffe875f7a6bd8/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] /home/overtatech-4/.android/build-cache/db232f4955340cca6127edd71381999b1c673f56/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.2.0] /home/overtatech-4/.android/build-cache/83f2dbc99b305cc5faa4414a78cd36a9b1df97b6/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] /home/overtatech-4/.android/build-cache/0e18761493c89cd5e898bbc46f50021415c96b59/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] /home/overtatech-4/.android/build-cache/671eb9a69af728973d8aa3e3b8dfd77867b83f97/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] /home/overtatech-4/.android/build-cache/b333cd9e53cf1f653a5f58153dc2409e116412b6/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] /home/overtatech-4/.android/build-cache/da896b661128d07315711f1da446c493f8f91c6d/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] /home/overtatech-4/.android/build-cache/da23270cceaf7cd5fbd020463c258ac3939fbdff/output/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:8:9-41
 	android:supportsRtl
@@ -81,94 +82,107 @@ activity#com.example.debajyotidas.myapplication.AllUsersList
 ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:32:9-50
 	android:name
 		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:32:19-47
-activity#com.example.debajyotidas.myapplication.GameActivity
+activity#com.example.debajyotidas.myapplication.GameWithComputer
 ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:33:9-35:52
 	android:screenOrientation
 		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:35:13-49
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:34:13-41
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:34:13-45
+activity#com.example.debajyotidas.myapplication.GameWithFriend
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:36:1-38:52
+	android:screenOrientation
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:38:13-49
+	android:name
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:37:13-43
+activity#com.example.debajyotidas.myapplication.GameWithRandomUser
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:39:1-41:52
+	android:screenOrientation
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:41:13-49
+	android:name
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:40:13-47
 service#com.example.debajyotidas.myapplication.service.MyFirebaseMessagingService
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:38:9-42:19
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:44:9-48:19
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:38:18-68
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:44:18-68
 intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:39:13-41:29
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:45:13-47:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:40:17-78
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:46:17-78
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:40:25-75
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:46:25-75
 service#com.example.debajyotidas.myapplication.service.MyFirebaseInstanceIDService
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:45:9-49:19
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:51:9-55:19
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:45:18-69
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:51:18-69
 intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:46:13-48:29
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:52:13-54:29
 action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:47:17-80
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:53:17-80
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:47:25-77
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:53:25-77
 activity#com.example.debajyotidas.myapplication.SplashActivity
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:51:9-59:20
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:57:9-65:20
 	android:theme
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:53:13-80
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:59:13-80
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:52:13-43
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:58:13-43
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:54:13-58:29
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:60:13-64:29
 category#android.intent.category.LAUNCHER
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:57:17-77
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:63:17-77
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:57:27-74
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:63:27-74
 activity#com.example.debajyotidas.myapplication.ChatActivity
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:60:9-50
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:66:9-50
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:60:19-47
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:66:19-47
 activity#com.example.debajyotidas.myapplication.SettingsActivity
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:61:9-63:63
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:67:9-69:63
 	android:label
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:63:13-60
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:69:13-60
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:62:13-45
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:68:13-45
 activity#com.example.debajyotidas.myapplication.SettingActivity
-ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:64:9-67:68
+ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:70:9-73:68
 	android:label
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:66:13-59
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:72:13-59
 	android:theme
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:67:13-56
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:73:13-56
 	android:name
-		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:65:13-44
+		ADDED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml:71:13-44
 uses-sdk
 INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-database:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/AndroidManifest.xml:3:5-42
-MERGED from [com.google.firebase:firebase-database-connection:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/AndroidManifest.xml:3:5-42
-MERGED from [com.android.support:design:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:cardview-v7:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.1.1/AndroidManifest.xml:20:5-43
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-auth-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/AndroidManifest.xml:4:5-42
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.android.support:support-vector-drawable:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/AndroidManifest.xml:21:5-43
-MERGED from [com.google.firebase:firebase-core:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-core/10.0.1/AndroidManifest.xml:4:5-42
-MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:3:5-42
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/AndroidManifest.xml:3:5-42
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.android.support:support-v4:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.firebase:firebase-auth:10.2.0] /home/overtatech-4/.android/build-cache/fdb148f27972d97f832e0959bbd273ff4737d2e0/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-database:10.2.0] /home/overtatech-4/.android/build-cache/f7d2a727583f5adf5ddb8c66b6eb01635713d629/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-database-connection:10.2.0] /home/overtatech-4/.android/build-cache/2015818dace824ad21256e0d42da29ed531cb11c/output/AndroidManifest.xml:3:5-43
+MERGED from [com.android.support:design:25.2.0] /home/overtatech-4/.android/build-cache/e0db561fe64552a17ad0b5b03d9b2aecb4550c89/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.2.0] /home/overtatech-4/.android/build-cache/ce197fd356320e62fcb467ce170b19d0ebbc39cd/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] /home/overtatech-4/.android/build-cache/38e11da31027171d97a29982a769040b2d1bfa69/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:25.2.0] /home/overtatech-4/.android/build-cache/d35339f7f36d25979c1fe5fdc4a11f564301fb4d/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:25.2.0] /home/overtatech-4/.android/build-cache/5fdb3f9791de52ef0ab0e7a0645c840c62ce4410/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:25.2.0] /home/overtatech-4/.android/build-cache/9a91f40f5014e5a3329f0b5181d453cb633ca936/output/AndroidManifest.xml:20:5-43
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/overtatech-4/.android/build-cache/74b86b296ae4013f84a8b0f8138cd8d0993c0a29/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-messaging:10.2.0] /home/overtatech-4/.android/build-cache/785d19364476af4f642b74b076186f1f89c2336d/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:10.2.0] /home/overtatech-4/.android/build-cache/ec83705d85c2e2472a4ac354db8c9c543d7a052b/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base:10.2.0] /home/overtatech-4/.android/build-cache/99e92269e23ad9a392381593fea815df535d71d8/output/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-vector-drawable:25.2.0] /home/overtatech-4/.android/build-cache/d03cae3571336325c11efc887b04d5106647b601/output/AndroidManifest.xml:21:5-43
+MERGED from [com.google.firebase:firebase-crash:10.2.0] /home/overtatech-4/.android/build-cache/136baf9cd88febe98ba304695db5332d7e16a645/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-core:10.2.0] /home/overtatech-4/.android/build-cache/7847e6377e360e19ef55200533e66e23de42f187/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:10.2.0] /home/overtatech-4/.android/build-cache/8e8ac5876d560154d5b2b6dc313ffe875f7a6bd8/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] /home/overtatech-4/.android/build-cache/db232f4955340cca6127edd71381999b1c673f56/output/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:25.2.0] /home/overtatech-4/.android/build-cache/83f2dbc99b305cc5faa4414a78cd36a9b1df97b6/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.2.0] /home/overtatech-4/.android/build-cache/0e18761493c89cd5e898bbc46f50021415c96b59/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.2.0] /home/overtatech-4/.android/build-cache/671eb9a69af728973d8aa3e3b8dfd77867b83f97/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.2.0] /home/overtatech-4/.android/build-cache/b333cd9e53cf1f653a5f58153dc2409e116412b6/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.2.0] /home/overtatech-4/.android/build-cache/da896b661128d07315711f1da446c493f8f91c6d/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.2.0] /home/overtatech-4/.android/build-cache/da23270cceaf7cd5fbd020463c258ac3939fbdff/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.1.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:25.2.0] /home/overtatech-4/.android/build-cache/e0db561fe64552a17ad0b5b03d9b2aecb4550c89/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
@@ -176,148 +190,149 @@ MERGED from [com.android.support:support-compat:25.1.1] /home/overtatech-4/Andro
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
 		INJECTED from /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/src/main/AndroidManifest.xml
 service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:9-27:19
+ADDED from [com.google.firebase:firebase-messaging:10.2.0] /home/overtatech-4/.android/build-cache/785d19364476af4f642b74b076186f1f89c2336d/output/AndroidManifest.xml:23:9-27:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:88-111
+		ADDED from [com.google.firebase:firebase-messaging:10.2.0] /home/overtatech-4/.android/build-cache/785d19364476af4f642b74b076186f1f89c2336d/output/AndroidManifest.xml:23:88-111
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/AndroidManifest.xml:23:18-87
+		ADDED from [com.google.firebase:firebase-messaging:10.2.0] /home/overtatech-4/.android/build-cache/785d19364476af4f642b74b076186f1f89c2336d/output/AndroidManifest.xml:23:18-87
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:9-189
+ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:20:9-189
 	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:129-162
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:20:129-162
 	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:163-187
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:20:163-187
 	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:69-128
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:20:69-128
 	android:name
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:19-68
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:20:19-68
 service#com.google.android.gms.auth.api.signin.RevocationBoundService
-ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:9-184
+ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:24:9-184
 	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:64-87
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:24:64-87
 	android:permission
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:88-182
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:24:88-182
 	android:name
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:24:18-63
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] /home/overtatech-4/.android/build-cache/ba48f82d715622a5696146b06f773aa4e71721ec/output/AndroidManifest.xml:24:18-63
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:9-172
+ADDED from [com.google.android.gms:play-services-base:10.2.0] /home/overtatech-4/.android/build-cache/99e92269e23ad9a392381593fea815df535d71d8/output/AndroidManifest.xml:19:9-172
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] /home/overtatech-4/.android/build-cache/99e92269e23ad9a392381593fea815df535d71d8/output/AndroidManifest.xml:19:146-170
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] /home/overtatech-4/.android/build-cache/99e92269e23ad9a392381593fea815df535d71d8/output/AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:19-85
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] /home/overtatech-4/.android/build-cache/99e92269e23ad9a392381593fea815df535d71d8/output/AndroidManifest.xml:19:19-85
 uses-permission#android.permission.INTERNET
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:20:5-66
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:20:5-66
-MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:20:5-66
+ADDED from [com.google.firebase:firebase-crash:10.2.0] /home/overtatech-4/.android/build-cache/136baf9cd88febe98ba304695db5332d7e16a645/output/AndroidManifest.xml:18:5-66
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:20:22-64
+		ADDED from [com.google.firebase:firebase-crash:10.2.0] /home/overtatech-4/.android/build-cache/136baf9cd88febe98ba304695db5332d7e16a645/output/AndroidManifest.xml:18:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:19:5-78
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:21:22-76
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:21:22-76
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:21:5-67
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:21:5-67
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:22:22-65
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:22:22-65
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:25:7-26:18
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:25:7-26:18
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:25:7-26:18
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:25:90-112
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:25:90-112
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:25:113-137
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:25:113-137
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:25:17-89
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:25:17-89
 receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:27:7-31:18
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:27:7-31:18
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:27:162-184
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:27:162-184
 	android:permission
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:27:105-161
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:27:105-161
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:27:17-104
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:27:17-104
 intent-filter#com.android.vending.INSTALL_REFERRER
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:28:11-30:27
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:28:11-30:27
 action#com.android.vending.INSTALL_REFERRER
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:29:15-76
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:29:15-76
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:29:23-74
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:29:23-74
 service#com.google.android.gms.measurement.AppMeasurementService
-ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:32:7-137
-MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/AndroidManifest.xml:27:7-137
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] /home/overtatech-4/.android/build-cache/1ca0036002c17883e3caea3bfb71f187f67d16f9/output/AndroidManifest.xml:27:7-137
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:32:88-110
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:32:88-110
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:32:111-135
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:32:111-135
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/AndroidManifest.xml:32:16-87
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] /home/overtatech-4/.android/build-cache/3dd6a4a4da83daac4711e826f97a98a6a143b900/output/AndroidManifest.xml:32:16-87
 uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:22:5-81
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:22:5-81
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:22:22-79
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:22:22-79
 permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:24:5-109
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:24:5-109
 	android:protectionLevel
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:24:72-107
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:24:72-107
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:24:17-71
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:24:17-71
 uses-permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:26:5-78
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:26:5-78
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:26:22-76
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:26:22-76
 receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:30:9-36:20
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:30:9-36:20
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:30:85-108
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:30:85-108
 	android:permission
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:30:109-169
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:30:109-169
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:30:19-84
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:30:19-84
 intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:31:13-35:29
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:31:13-35:29
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:32:17-80
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:32:17-80
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:32:25-78
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:32:25-78
 action#com.google.android.c2dm.intent.REGISTRATION
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:33:17-85
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:33:17-85
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:33:25-83
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:33:25-83
 category#${applicationId}
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:34:17-60
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:34:17-60
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:34:27-58
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:34:27-58
 receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:40:9-119
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:40:9-119
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:40:93-117
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:40:93-117
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:40:19-92
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:40:19-92
 service#com.google.firebase.iid.FirebaseInstanceIdService
-ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:44:9-48:19
+ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:44:9-48:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:44:83-106
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:44:83-106
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/AndroidManifest.xml:44:18-82
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] /home/overtatech-4/.android/build-cache/1a4698498982bd3471c36c31168c5de855c2f08d/output/AndroidManifest.xml:44:18-82
 provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:6:9-194
+ADDED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:6:9-194
 	android:authorities
-		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:6:19-78
+		ADDED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:6:19-78
 	android:exported
-		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:6:144-168
+		ADDED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:6:144-168
 	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:6:169-192
+		ADDED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:6:169-192
 	android:name
-		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:6:79-143
+		ADDED from [com.google.firebase:firebase-common:10.2.0] /home/overtatech-4/.android/build-cache/860cb91ca41d5134793b6ee19a2a49729c648614/output/AndroidManifest.xml:6:79-143
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:20:9-121
+ADDED from [com.google.android.gms:play-services-basement:10.2.0] /home/overtatech-4/.android/build-cache/db232f4955340cca6127edd71381999b1c673f56/output/AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:10.2.0] /home/overtatech-4/.android/build-cache/db232f4955340cca6127edd71381999b1c673f56/output/AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:20:20-65
+		ADDED from [com.google.android.gms:play-services-basement:10.2.0] /home/overtatech-4/.android/build-cache/db232f4955340cca6127edd71381999b1c673f56/output/AndroidManifest.xml:20:20-65

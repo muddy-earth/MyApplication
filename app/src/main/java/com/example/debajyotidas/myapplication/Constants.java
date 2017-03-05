@@ -21,6 +21,12 @@ public class Constants {
     }
     public interface KEYS{
 
+        interface QUEUE{
+            String BIGINNER_QUEUE="Beginner_Queue";
+            String MEDIUM_QUEUE="Medium_Queue";
+            String HIGHER_QUEUE="Higher_Queue";
+        }
+
          interface USERS{
              String LAST_ONLINE="lastOnline";
              String ONLINE="online";

@@ -1,3 +1,0 @@
-/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
-/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/edit_cache.dir
-/home/overtatech-4/AndroidStudioProjects/github/MyApplication/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/native-lib.dir

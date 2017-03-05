@@ -51,8 +51,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/relativeLayout"
-        android:layout_below="@+id/rl">
+        android:layout_below="@+id/rl"
+        android:layout_alignParentBottom="true">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,12 +73,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
+
             <com.example.debajyotidas.myapplication.view.SquareImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/img_0"
                 android:layout_weight="1"
                 android:background="@android:color/holo_orange_dark"/>
+
             <com.example.debajyotidas.myapplication.view.SquareImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -157,7 +159,7 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+   <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -219,6 +221,6 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"/>
 
-    </RelativeLayout>
+    </RelativeLayout>-->
 
 </RelativeLayout>

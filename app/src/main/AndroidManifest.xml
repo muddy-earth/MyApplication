@@ -31,7 +31,13 @@
         </activity>
         <activity android:name=".AllUsersList" />
         <activity
-            android:name=".GameActivity"
+            android:name=".GameWithComputer"
+            android:screenOrientation="portrait" />
+<activity
+            android:name=".GameWithFriend"
+            android:screenOrientation="portrait" />
+<activity
+            android:name=".GameWithRandomUser"
             android:screenOrientation="portrait" />
 
         <!-- [START firebase_service] -->

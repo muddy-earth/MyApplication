@@ -183,9 +183,7 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
     }
 
     public void playWithComputer(View  view){
-        startActivity(new Intent(this,GameActivity.class)
-                //.putExtra("bet",Constants.BET.BEGINNER)
-                .putExtra("with_computer",true));
+        startActivity(new Intent(this,GameWithComputer.class));
     }
 
     @Override
@@ -301,7 +299,12 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                 pointBet=Constants.BET.BEGINNER;
                 //ratingStart=Constants.INTERVAL.BEGINNER.START;
                 ratingEnd=Constants.INTERVAL.BEGINNER.END;
-                filterData(-1,ratingEnd,pointBet);
+                //filterData(-1,ratingEnd,pointBet);
+                startActivity(new Intent(MainActivity.this,GameWithRandomUser.class)
+                        //.putExtra("uid",user.getUID())
+                        .putExtra("bet",pointBet));
+                        //.putExtra("with_computer",false)
+                        //.putExtra("reg_token",user.getReg_token()));
                 break;
             case R.id.rl2:
                 pointBet=Constants.BET.MEDIUM;
@@ -322,18 +325,20 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Map<String , Object> map= (Map<String, Object>) dataSnapshot.getValue();
                         long points= (Long) map.get("points");
-                        long betStart, betEnd;
+                        long betStart, betEnd, pointBet;
                         if (points<=Constants.BET.BEGINNER){
                             betStart=-1;
                             betEnd=Constants.INTERVAL.BEGINNER.END;
+                            pointBet=Constants.BET.BEGINNER;
                         }else if (points>Constants.BET.BEGINNER&&points<=Constants.BET.MEDIUM){
                             betStart=Constants.INTERVAL.MEDIUM.START;
                             betEnd=Constants.INTERVAL.MEDIUM.END;
+                            pointBet=Constants.BET.MEDIUM;
                         }else{
                             betEnd=-1;
                             betStart=Constants.INTERVAL.HIGHER.START;
+                            pointBet=Constants.BET.HIGHER;
                         }
-                        long pointBet=Constants.BET.SAME;
                         filterData(betStart,betEnd,pointBet);
                     }
 
@@ -393,7 +398,7 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                         {
                             if (i==randomNum){
                                 DataSnapshot datasnap=iterator.get(i);
-                                if (!datasnap.getKey().equals(UID)&&!UID.equals("no_uid")) {
+                                //if (!datasnap.getKey().equals(UID)&&!UID.equals("no_uid")) {
                                     Map<String, Object> map = (Map<String, Object>) datasnap.getValue();
 
                                     boolean isOnline=Boolean.parseBoolean(String.valueOf(map.get("online")));
@@ -402,13 +407,13 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                                             isOnline,String.valueOf(map.get("reg_token")));
                                     user.setUID(datasnap.getKey());
                                     break;
-                                }
+                               // }
                                 //break;
                             }
                             i++;
                         }
                         if (user!=null){
-                            startActivity(new Intent(MainActivity.this,GameActivity.class)
+                            startActivity(new Intent(MainActivity.this,GameWithFriend.class)
                                     .putExtra("uid",user.getUID())
                                     .putExtra("bet",pointBet)
                                     //.putExtra("with_computer",false)
